@@ -1,0 +1,38 @@
+ 
+
+.modal {
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.modalContent {
+    z-index: 1;
+    margin: auto;
+    background: #ffff;
+    border-radius: 5px;
+    padding: 3%;
+    box-shadow: 0 0 11px 2px #392c1e;
+    width: 300px;
+}
+
+.modalContent label {
+    vertical-align: sub;
+    font-weight: bold;
+    font-size: 15px;
+}
+.modalContent button {
+    margin: 35px 50px 15px 95px;
+}
+
+body.modal {
+overflow: hidden;
+}
+ 
