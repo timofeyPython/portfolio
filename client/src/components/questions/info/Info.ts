@@ -24,7 +24,7 @@ export class Info extends QuestionsComponent {
     toHtml() {
         return `
             <div class="info" id="info">
-                <div>Тестирование начал: <strong>ttep001</strong></div>
+                <div>Тестирование начал: <strong id="login"></strong></div>
                 <div>Время начала ${this.start.toLocaleDateString()} ${this.start.toLocaleTimeString()}</div>
                 <div id="time">Прошло времени: </div>
                 <div id="counter"></span>
@@ -40,6 +40,7 @@ export class Info extends QuestionsComponent {
         this.$on('info : updateCounter',(content=> this.updateCounter(content)))
         this.$on('info : visibleInfo', ((status)=>this.hidden(status)))
         this.$on('info : finish', ((fn)=> fn(this)))
+        this.$on('info : login', ((fn)=> fn(this)))
         
     }
 

@@ -1,12 +1,12 @@
 import { $ } from "../dom"
-import type { IRoutes, HLET, IClasses } from "../../types/interfaces"
-
+import type { IRoutes, IClasses  } from "../../types/interfaces"
+import { ActiveRoute } from "./ActiveRoute";
  
 
 export class Router {
 
-    $placeholder: { $el: HLET, _append: any}
-    routes: Array<IRoutes>
+    $placeholder;
+    routes;
     page: IClasses
  
     constructor (selector: string, routes: Array<IRoutes>) {
@@ -27,16 +27,24 @@ export class Router {
 
     changePageHandler() {
  
-
-        const activeRoute = this.routes.find((route)=>  route.path === 'questions')
+        if (!this.page == null) 
+            this.page.destroy()
+        
+        this.$placeholder._clear()
  
-        let Page = activeRoute.template
+        const path = ActiveRoute.path
+
+        const activeRoute = this.routes.find((route)=>  route.path === path)
+        const defaultPage = this.routes.find((route)=> route.path === 'main')
+
+        let Page = activeRoute ? activeRoute.template : defaultPage.template
+ 
         // Instance класса 
         this.page = new Page('tested')
  
         // Добавляем контект 
         this.$placeholder._append(this.page.getRoot())
- 
+        // Добавляем слушателей
         this.page.afterRender()
     }
 

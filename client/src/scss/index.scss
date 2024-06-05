@@ -1,8 +1,6 @@
 @import "bootstrap/scss/bootstrap";
-@import "contents";
-@import "header";
-@import "info";
-@import "title";
+@import "questions/index";
+@import "main/index.scss";
 
 *{
     margin: 0;

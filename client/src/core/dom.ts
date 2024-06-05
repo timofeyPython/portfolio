@@ -42,6 +42,11 @@ class Dom {
         return this.$el.querySelector(selector)
     }
 
+    _clear() {
+        this._html('')
+        return this
+    }
+
     get data() {
         return this.$el.dataset
     }

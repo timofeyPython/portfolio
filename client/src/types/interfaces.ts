@@ -9,6 +9,7 @@ export interface IDom {
     _on?: ((a: string, b: ((...arg:any)=>void))=>void);
     _of?: ((a: string, b: (()=>void))=>void);
     _find?: (x: string)=>HLET;
+    _clear?: ()=> this;
     readonly data?: string;
 }
 
@@ -22,6 +23,7 @@ export interface IComponent {
 
 export interface IClasses extends Page {
     params: any;
+    destroy: ()=>void;
 }
 
 // Page

@@ -1,4 +1,4 @@
-import { Page } from "./Page"
+import { Page } from "../core/Page"
 import { Questions } from "../components/questions/Questions"
 import { Header } from "../components/questions/header/Header"
 import { Contents } from "../components/questions/contents/Content"
@@ -12,13 +12,9 @@ import {utils} from '../core/utils/utils'
 const {storage, debounce} = utils()
 
 
-
 export class QuestionsPage extends Page {
     
-
-    question: any
- 
- 
+    components: Questions
 
     getRoot() {
 
@@ -31,7 +27,7 @@ export class QuestionsPage extends Page {
         const stateListener = debounce(((state: any) => storage('tested', state)), 300)
         store.subscribe(stateListener)
         
-        this.question = new Questions({
+        this.components = new Questions({
             components: [
                 Header,
                 Title,
@@ -40,15 +36,15 @@ export class QuestionsPage extends Page {
             ],
             store
         })        
-        return this.question.getRoot()
+        return this.components.getRoot()
     }
 
-    afterRender(): void {
-        this.question.init()
+    afterRender() {
+        this.components.init()
     }
 
-    destroy(): void {
-        this.question.desctroy()
+    destroy() {
+        this.components.destroy()
     }
 }
 

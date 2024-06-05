@@ -24,7 +24,7 @@ export class Title extends QuestionsComponent {
         const store = options.store.getState().tested
         this.start = new Date(store.startDate)
         this.counter = +store.answer_count
-        this.counterAll = +store.questions
+        this.counterAll = 0
         this.name = store.name
  
     }
@@ -91,6 +91,7 @@ export class Title extends QuestionsComponent {
         counter.innerHTML = `${this.counterAll}`
         this.counter === this.counterAll ? this.finishTest($el) : ''
         this.$emit('info : updateCounter', `Вы ответили на ${this.counter} вопросов из ${this.counterAll}`)
+        this.$emit('info : login', ((context: any)=> context.$root.$el.querySelector('#login').textContent = this.name))
     }
     finishTest($el: HLET) {
         const finish = $.create('div')

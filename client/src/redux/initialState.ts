@@ -6,8 +6,7 @@ export const defaultState: any = {
         answer: [],
         startDate: new Date(),
         passTime: '',
-        answer_count: 0,
-        question: 0
+        answer_count: 0
     }
 }
 

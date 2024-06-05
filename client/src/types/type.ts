@@ -8,5 +8,4 @@ export type TTested  = {
         solution: string;
         date: string;
     }>;
-    questions: string;
 }

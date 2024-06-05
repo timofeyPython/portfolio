@@ -6,7 +6,7 @@ export class Questions {
 
     // Нужно узнать, как описать interface
     components: Array<any>
-    emitter: IEmitter
+    emitter: Emitter
     store: IStore;
 
     constructor(options: {components: Array<any>, store: IStore}) {
@@ -41,9 +41,9 @@ export class Questions {
         this.components.forEach((component)=> component.init())
     }
 
-    desctroy() {
-
-    }
+    destroy() {
+        console.log('Типо разъебали слушателей!')
+    }   
 }
 
  
