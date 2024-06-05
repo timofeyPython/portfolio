@@ -3,6 +3,7 @@ import { Page } from "../core/Page";
 import { HLET } from "../types/interfaces";
 import { Header } from "../components/main/header/Header";
 import { Main } from "../components/main/Main";
+import { Contents } from "../components/main/contents/Contents";
 
 export class MainPage extends Page {
     
@@ -10,7 +11,8 @@ export class MainPage extends Page {
 
     getRoot() {
         this.components = new Main([
-            Header
+            Header,
+            Contents
         ])
 
         return this.components.getRoot()

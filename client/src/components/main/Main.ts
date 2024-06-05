@@ -1,10 +1,11 @@
 import { $ } from "../../core/dom";
+import { Header } from "./header/Header";
  
  
  
 export class Main {
 
-    components: Array<any>;
+    components;
 
     constructor(components: Array<any>) {
         this.components = components
@@ -12,12 +13,15 @@ export class Main {
 
     getRoot() {
         const main = $.create('div', 'main')
-
-        this.components.forEach((Component:any)=> {
-            const component = new Component()
-            console.log(component)
-            main._append(component.getRoot())
-        })
+        
+        if (Array.isArray(this.components))
+            this.components = this.components.map((Component)=> {
+                const $el = $.create('div', Component.className)
+                const component = new Component($el)
+                $el._html(component.getRoot())
+                main._append($el)
+                return component
+            })
 
         return main
  
@@ -25,5 +29,6 @@ export class Main {
 
     init() {
         console.log('Main', 'добавляем слушателей')
+        this.components.forEach((component: any) => component.init())
     }
 }
