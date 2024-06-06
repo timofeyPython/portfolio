@@ -1,4 +1,4 @@
-import { IDom } from "../../../types/interfaces";
+import { IDom, IQSHeaderOptions } from "../../../types/interfaces";
 
 
 export class Header {
@@ -6,7 +6,7 @@ export class Header {
     static className = 'main_header'
     $root;
 
-    constructor($root: IDom) {
+    constructor($root: IDom, options: IQSHeaderOptions) {
         this.$root = $root
     }
 

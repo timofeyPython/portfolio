@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
     const plugins = () => {
         const base = [
             new HtmlWebpackPlugin({
-                title: 'JS_Questions',
+                title: 'Portfolio',
                 template: path.resolve(__dirname, './src/index.html'), // шаблон
                 filename: 'index.html', // название выходного файла
             }),
@@ -27,6 +27,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, './dist'),
             filename: '[name].bundle.js',
+            publicPath: '/'
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
@@ -41,6 +42,7 @@ module.exports = (env, argv) => {
             port: '3000',
             open: true,
             hot: true,
+            historyApiFallback: true
         },
         module: {
             rules: [
@@ -62,6 +64,15 @@ module.exports = (env, argv) => {
                       "sass-loader",
                     ],
                 },
+                {
+                    test: /\.(jpg|png|gif|woff|eot|ttf|svg)/,
+                    use: {
+                    loader: 'url-loader', // this need file-loader
+                    options: {
+                        limit: 50000
+                        }
+                    }
+                }
             ]
         }
 

@@ -67,6 +67,7 @@
     "undici-types": "^5.26.5",
     "update-browserslist-db": "^1.0.16",
     "uri-js": "^4.4.1",
+    "url-loader": "^4.1.1",
     "watchpack": "^2.4.1",
     "webpack-sources": "^3.2.3"
   },

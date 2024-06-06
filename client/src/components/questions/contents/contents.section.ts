@@ -3,14 +3,10 @@ import { data } from "../../../data/data"
 
 export function createSection(state: any){
     
-    
- 
  const answer = state.tested.answer
-
  const rows: Array<string>  = data.map(((el, i)=> {
 
         const answerFind = answer.find((answ: { id: string })=> answ.id == `${el.id}`)
- 
         const question = `<p><strong>${i+1}. ${el.question}</strong></p>`
         const code = el.code ? `
                     <div class="code">
@@ -68,7 +64,6 @@ export function createAnswer(element: {$section: any | number}) {
     
     })
  
- 
     let code = !answer.s_code ? null : answer?.s_code.map((answer: any)=> `
             <div class="description">${answer?.description}</div>
 
@@ -88,7 +83,7 @@ export function createAnswer(element: {$section: any | number}) {
             ${code}
         </div>
     `  
-   
+    
     return `
         <div class="solution">
             <label>Ответ:</label>

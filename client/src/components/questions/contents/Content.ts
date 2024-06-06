@@ -1,4 +1,3 @@
-import { $ } from "../../../core/dom"
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
 import { IQSHeaderOptions, IDom } from "../../../types/interfaces"
 import { createSection, createAnswer } from "./contents.section"
