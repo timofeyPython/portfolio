@@ -25,7 +25,7 @@ export function createSection(state: any){
 
         const button = `
         <div>
-            <button  type="button" class="btn btn-outline-primary" data-answer="btn_ans_${i}">Ответить</button>
+            <button  type="button" class="btn btn-outline-primary" data-button="${i}">Ответить</button>
         </div>
         `
 

@@ -62,5 +62,9 @@ export class Info extends QuestionsComponent {
         this.$root._find('#time').innerHTML = content
     }
 
+    onClick() {
+        console.log('test')
+    }
+
  
 }

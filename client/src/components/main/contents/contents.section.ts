@@ -5,12 +5,12 @@ import iconReact from '../../../assets/icon/react.png'
 import iconVue from '../../../assets/icon/vue.png'
 import iconGithub from '../../../assets/icon/github.png'
 
-export function createSection() {
+export function section() {
           
     const listsJob = [
         {
             href: 'questions',
-            title: 'Тестирование по знанию аспектов JS',
+            title: 'Тестирование по JS',
             description: 'В данном тесте представлены вопросы по ЯП JavaScript, в создании теста использовались такие технологии, как Webpack, Typescript, SCSS. Данный модуль был написан без использования фреймворков и сторонних библиотек, главная задача была создать свой фреймворк, чтобы понять принципы работы современных технологий.',
             link_description: 'Ниже представлен код приложения из Github',
             link_git: '/github',
@@ -26,9 +26,9 @@ export function createSection() {
         },
         {
             href: '/',
-            title: 'Напоминание о предстоящих событиях',
+            title: 'Напоминание  о событиях',
             link_description: 'Ниже представлен код приложения из Github',
-            description: 'Напоминание о предстоящих событиях',
+            description: 'Данный функционал позволяет создавать события, выбирая нужную дату и указав свою почту, куда придёт сообщение о напоминани ',
             link_git: '',
             img: [iconReact]
         }
@@ -36,7 +36,7 @@ export function createSection() {
 
     const lists_content = () => {
 
-        const generateHTML = (html: {title: string, description: string, img: string | [], href: string}) => {
+        const generateHTML = (html: {title: string, description: string, img: string | [], href: string}, index: number) => {
             let img = ``
                 if (Array.isArray(html.img)) 
                     img = `
@@ -59,12 +59,12 @@ export function createSection() {
                 `
 
                 return `
-                    <div class="block">
+                    <div class="block" id="bl_${index}">
                         <h3>${html.title}</h3>
                         <hr>
                         <div>
                             <div>
-                                <label>Описание: ${html.description.split(' ').slice(0, 15).join(' ')}...</label>
+                                <label>Описание: ${html.description.split(' ').slice(0, 10).join(' ')}...</label>
                             </div>
                             ${img}
                         </div>
@@ -78,12 +78,8 @@ export function createSection() {
                     </div>
                 `   
             }
-            // <p>${html.description}</p>
-            
-            // <label>Приложение достуно по ссылке </label>
-            // <button type="button" class="btn btn-outline-primary"><a href="/${html.href}">Перейти</a></button>
-
-            const array = listsJob.map((list)=>generateHTML(list))
+ 
+            const array = listsJob.map((list, i)=>generateHTML(list, i))
 
             let contents: Array<Array<string>> = []
             let elements: Array<string> = []
@@ -112,5 +108,9 @@ export function createSection() {
             return result.join('')
     }
 
-    return lists_content()
+    const showBlock = () => {
+
+    }
+
+    return {lists_content, showBlock}
 }

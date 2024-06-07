@@ -8,6 +8,7 @@ import { Store } from "../core/store/Store"
 import { rootReducer } from '../redux/rootReducer'
 import {normalizeInitialState} from '../redux/initialState'
 import {utils} from '../core/utils/utils'
+import { Modal } from "../components/questions/modal/Modal"
 
 const {storage, debounce} = utils()
 
@@ -30,6 +31,7 @@ export class QuestionsPage extends Page {
         this.components = new Questions({
             components: [
                 Header,
+                Modal,
                 Title,
                 Info,
                 Contents
