@@ -33,8 +33,15 @@ export function utils() {
         }
     }
 
+    function isEqual(a: Object, b: Object) {
+        if (typeof a === 'object' && typeof b === 'object') {
+            return JSON.stringify(a) === JSON.stringify(b)
+        }
+        return a == b
+    }
+
 
     return {
-        getMethodName, storage, debounce
+        getMethodName, storage, debounce, isEqual
     }
 }

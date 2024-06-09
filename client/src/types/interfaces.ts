@@ -1,4 +1,4 @@
-import type { TTested } from "./type";
+import { Store } from "../core/store/Store";
 
 export interface HLET extends HTMLElement {}
 
@@ -40,24 +40,14 @@ export interface IQSHeaderOptions {
     name: string;
     listeners: Array<string>;
     emitter: any
-    store: IStore;
+    store: Store;
+    subscribe: Array<any>
 }
 
 // Routers
 export interface IRoutes {
     path: string;
     template: any;
-}
-
-// Store
-export interface IStore {
-    subscribe: ((fn: any)=>{
-        unsubscribe(): void;
-    });
-    dispatch: (action: any) => void;
-    getState: () => {
-        tested: TTested
-    }
 }
 
 // Emiiter
@@ -67,6 +57,12 @@ export interface IEmitter {
     subscribe?: ((event: string | number, fn: any)=>any);
 }
 
-
-
- 
+export interface IInitalState {
+    [tested: string]: {
+        name: null | string;
+        answer: [];
+        startDate: Date;
+        passTime: string;
+        answer_count: number;
+    }
+}

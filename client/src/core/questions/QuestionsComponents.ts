@@ -1,5 +1,6 @@
-import { HLET, IDomListener, IEmitter, IQSHeaderOptions, IStore } from "../../types/interfaces";
+import { HLET, IDomListener, IEmitter, IQSHeaderOptions } from "../../types/interfaces";
 import { DomListener } from "../DomListener";
+import { Store } from "../store/Store";
 
 export class QuestionsComponent extends DomListener {
 
@@ -8,13 +9,13 @@ export class QuestionsComponent extends DomListener {
     emitter: IEmitter
     subscribe: Array<any>;
     unsubscribes: Array<any>;
-    store: IStore;
+    store: Store;
 
     constructor($root: IDomListener, options: IQSHeaderOptions) {
         super($root, options.listeners)
         this.name = options.name || ''
         this.emitter = options.emitter
-        this.subscribe = []
+        this.subscribe = options.subscribe
         this.unsubscribes = []
         this.store  = options.store
     }
@@ -34,7 +35,14 @@ export class QuestionsComponent extends DomListener {
     destroy() {
         this.removeDomListener()
     }
- 
+    // Subscriber проверка на наличие ключа
+    isWatching(key: string) {
+        return this.subscribe.includes(key)
+    }
+    // Сюда приходят только изменение по тем полям,кот-ые мы подписались
+    storeChanged() {
+        console.log('storeChanged')
+    }
 
     $emit(event: string, ...args: Array<Element> | any) {
         this.emitter.emit(event, ...args)

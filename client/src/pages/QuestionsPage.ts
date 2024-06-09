@@ -6,7 +6,7 @@ import { Info } from "../components/questions/info/Info"
 import { Title } from "../components/questions/title/Title"
 import { Store } from "../core/store/Store"
 import { rootReducer } from '../redux/rootReducer'
-import {normalizeInitialState} from '../redux/initialState'
+import { normalizeInitialState } from '../redux/initialState'
 import {utils} from '../core/utils/utils'
 import { Modal } from "../components/questions/modal/Modal"
 
@@ -24,20 +24,25 @@ export class QuestionsPage extends Page {
         const initialState = normalizeInitialState(state)
         const store = new Store(rootReducer, initialState)
  
-        
         const stateListener = debounce(((state: any) => storage('tested', state)), 300)
         store.subscribe(stateListener)
         
-        this.components = new Questions({
-            components: [
-                Header,
-                Modal,
-                Title,
-                Info,
-                Contents
-            ],
-            store
-        })        
+        if (!state) 
+            this.components = new Questions({
+                components: [Modal],
+                store
+            })        
+        else 
+            this.components = new Questions({
+                components: [
+                    Header,
+                    Title,
+                    Info,
+                    Contents
+                ],
+                store
+            })    
+ 
         return this.components.getRoot()
     }
 

@@ -1,18 +1,22 @@
 import { Emitter } from "../../core/Emitter"
 import { $ } from "../../core/dom" 
-import { IEmitter, IStore } from "../../types/interfaces"
+import { Store } from "../../core/store/Store"
+import { StoreSubscriber } from "../../core/store/StoreSubscriber"
+
 
 export class Questions {
 
     // Нужно узнать, как описать interface
     components: Array<any>
-    emitter: Emitter
-    store: IStore;
+    emitter;
+    store;
+    subscriber;
 
-    constructor(options: {components: Array<any>, store: IStore}) {
+    constructor(options: {components: Array<any>, store: Store}) {
         this.components = options.components
         this.emitter = new Emitter()
         this.store = options.store
+        this.subscriber = new StoreSubscriber(this.store) 
     }
 
     getRoot() {
@@ -39,6 +43,7 @@ export class Questions {
 
     init() {
         this.components.forEach((component)=> component.init())
+        // this.subscriber.subscribeComponents(this.components)
     }
 
     destroy() {

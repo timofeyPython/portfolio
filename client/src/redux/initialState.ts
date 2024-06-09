@@ -1,8 +1,8 @@
- 
+import { IInitalState } from "../types/interfaces"
 
-export const defaultState: any = {
+ export const defaultState: IInitalState = {
     tested: {
-        name: 'timofeyJS',
+        name: null,
         answer: [],
         startDate: new Date(),
         passTime: '',

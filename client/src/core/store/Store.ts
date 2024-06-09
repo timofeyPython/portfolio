@@ -1,16 +1,18 @@
+import { IInitalState } from "../../types/interfaces";
+
 export class Store {
-    state: any;
+    state;
     listeners: Array<any>;
     rootReducer: any;
 
 
-    constructor(rootReducer: any, initialState = {}) {
+    constructor(rootReducer: ((state: IInitalState | {}, action: {type: string})=>IInitalState), initialState = {}) {
         this.state = rootReducer({...initialState}, {type: '__init__'})
         this.listeners = [] // Массив подписок (функций)
         this.rootReducer = rootReducer
     }
 
-    subscribe = (fn: (()=>void)) => {
+    subscribe = (fn: ((state: IInitalState)=>void)) => {
         this.listeners.push(fn)
         return {
             unsubscribe() {
@@ -27,7 +29,4 @@ export class Store {
     getState = () => {
         return JSON.parse(JSON.stringify(this.state))
     }
-
-    
-
 }
