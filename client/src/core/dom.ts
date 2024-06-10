@@ -1,6 +1,6 @@
-import { IDom, HLET } from "../types/interfaces"
+import { HLET } from "../types/interfaces"
 
-class Dom {
+export class Dom {
 
     $el: HLET
  
@@ -30,7 +30,7 @@ class Dom {
     
         return this
     }
-    _on(eventType: string, callback: (()=>void)) {
+    _on(eventType: string, callback: ((...arg: any)=>void)) {
         this.$el.addEventListener(eventType, callback)
     }
 
@@ -45,6 +45,10 @@ class Dom {
     _clear() {
         this._html('')
         return this
+    }
+
+    _removeStorage(key: string) {
+        localStorage.removeItem(key)
     }
 
     get data() {

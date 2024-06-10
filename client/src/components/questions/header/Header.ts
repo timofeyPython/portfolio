@@ -1,11 +1,12 @@
-import { $ } from "../../../core/dom"
+import { $, Dom } from "../../../core/dom"
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
-import { IDom, IQSHeaderOptions } from "../../../types/interfaces"
+import { IQSHeaderOptions } from "../../../types/interfaces"
+import iconHome from '../../../assets/icon/home.png'
 
 export class Header extends QuestionsComponent {
     static className = 'qs_header'
 
-    constructor($root: IDom, options: IQSHeaderOptions) {
+    constructor($root: Dom, options: IQSHeaderOptions) {
         super($root, {
             name: 'Header',
             ...options
@@ -14,7 +15,10 @@ export class Header extends QuestionsComponent {
 
     toHtml() {
         return `
-            <div><p>Работа для портфолио: Тестирование по ЯП JavaScript, выполненная на нативном JS</p></div>
+            <div style="display: flex">
+                <a href="/"><img src="${iconHome}" class="qs_img"></a>
+                <p>Работа для портфолио: Тестирование по ЯП JavaScript, выполненная на нативном JS</p>
+            </div>
             <div id='time'> Текущее время: ${(new Date()).toLocaleTimeString()}</div>
         `
     }

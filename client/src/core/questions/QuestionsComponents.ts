@@ -1,17 +1,18 @@
-import { HLET, IDomListener, IEmitter, IQSHeaderOptions } from "../../types/interfaces";
+import { HLET, IEmitter, IQSHeaderOptions } from "../../types/interfaces";
 import { DomListener } from "../DomListener";
+import { Dom } from "../dom";
 import { Store } from "../store/Store";
 
 export class QuestionsComponent extends DomListener {
 
-    $root: IDomListener;
+    $root: Dom;
     name: string;
     emitter: IEmitter
     subscribe: Array<any>;
     unsubscribes: Array<any>;
     store: Store;
 
-    constructor($root: IDomListener, options: IQSHeaderOptions) {
+    constructor($root: Dom, options: IQSHeaderOptions) {
         super($root, options.listeners)
         this.name = options.name || ''
         this.emitter = options.emitter
@@ -53,11 +54,5 @@ export class QuestionsComponent extends DomListener {
     }
     $dispatch(action?: any) {
         this.store.dispatch(action)
-    }
-   
-
-
-  
-
-  
+    }  
 }

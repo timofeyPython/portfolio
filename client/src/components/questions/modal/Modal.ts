@@ -1,14 +1,15 @@
+import { Dom } from "../../../core/dom";
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents";
 import { utils } from "../../../core/utils/utils";
-import { IDom, IQSHeaderOptions } from "../../../types/interfaces";
+import { IQSHeaderOptions } from "../../../types/interfaces";
 
-const {storage} = utils()
+const { storage } = utils()
 
 export class Modal extends QuestionsComponent {
 
    static className = 'qs_modal'
 
-    constructor($root: IDom, options:IQSHeaderOptions) {
+    constructor($root: Dom, options:IQSHeaderOptions) {
         super($root, {
             ...options,
             listeners: ['click']

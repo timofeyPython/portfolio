@@ -1,9 +1,8 @@
-import { $ } from "../../../core/dom"
+import { $, Dom } from "../../../core/dom"
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
-import { IDom, IQSHeaderOptions, HLET } from "../../../types/interfaces"
+import { IQSHeaderOptions, HLET } from "../../../types/interfaces"
 import { observer } from './title.observer'
 import * as actions from '../../../redux/action'
- 
 
 export class Title extends QuestionsComponent {
     static className = 'qs_title'
@@ -14,11 +13,13 @@ export class Title extends QuestionsComponent {
     counter: number;
     counterAll: number;
     name: string;
+    $root;
 
-    constructor($root: IDom, options: IQSHeaderOptions) {
+    constructor($root: Dom, options: IQSHeaderOptions) {
         super($root, {
             name: 'Title',
-            ...options
+            ...options,
+            listeners: ['click']
         })
         
         const store = options.store.getState().tested
@@ -26,19 +27,26 @@ export class Title extends QuestionsComponent {
         this.counter = +store.answer_count
         this.counterAll = 0
         this.name = store.name
+        this.$root = $root
  
     }
 
     toHtml() {
         return `
-            <div id="title"> 
-                <div><p>Вопросы по JS для общего ознакомления</p></div>
-                <div>Тестирование начал: ${this.name}</div>
-                <div> Время начала прохождения тестирования: ${this.start.toLocaleDateString()} ${this.start.toLocaleTimeString()}</div>
-                <div id="time">Прошло времени:</div>
-                <div id="counter">Вы ответили на <span data-counter="counter_1">${this.counter}</span> вопросов из <span data-counter="counter_2">${this.counterAll}</span>
+            <form>
+                <div id="title"> 
+                    <div><p>Вопросы по JS для общего ознакомления</p></div>
+                    <div>Тестирование начал: ${this.name}</div>
+                    <div> Время начала прохождения тестирования: ${this.start.toLocaleDateString()} ${this.start.toLocaleTimeString()}</div>
+                    <div id="time">Прошло времени:</div>
+                    <div id="counter">Вы ответили на <span data-counter="counter_1">${this.counter}</span> вопросов из <span data-counter="counter_2">${this.counterAll}</span>
+                    </div>
+                    <div style="displa:flex; justify-content: space-between;">
+                        <button type="submit" class="btn btn-warning" id="repeat">Начать заного</button>
+                        <button type="button" class="btn btn-info" id="rewind">Перемешать вопросы</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         `
     }
 
@@ -106,5 +114,11 @@ export class Title extends QuestionsComponent {
             div.classList.add('finish')
             div.appendChild(finish.$el)
         }))
+    }
+    onClick(event: any) {
+        const id = event.target.id
+ 
+        if (id === 'repeat') this.$root._removeStorage('tested')
+        if (id === 'rewind') this.$emit('questions : rewind')
     }
 }

@@ -5,10 +5,12 @@
         padding: 1%;
         border-radius: 25px;
         margin: 3%;
+        transition: 1s;
+        border: 1px solid rgba(128, 128, 128, 0.548);
     }
 
     section:hover {
-        border: 1px solid blue;
+        background-color: rgba(200, 200, 200, 0.894); 
     }
 
     .code {

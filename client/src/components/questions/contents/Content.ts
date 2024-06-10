@@ -1,13 +1,13 @@
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
-import { IQSHeaderOptions, IDom } from "../../../types/interfaces"
+import { IQSHeaderOptions } from "../../../types/interfaces"
 import { createSection, createAnswer } from "./contents.section"
 import * as actions from '../../../redux/action'
-import { $ } from "../../../core/dom"
+import { $, Dom } from "../../../core/dom"
 
 export class Contents extends QuestionsComponent {
     static className = 'qs_contents'
 
-    constructor($root: IDom, options: IQSHeaderOptions) {
+    constructor($root: Dom, options: IQSHeaderOptions) {
         super($root, {
             name: 'Contents',
             ...options,
@@ -26,6 +26,7 @@ export class Contents extends QuestionsComponent {
         // Передаём инфу обо всех вопросах в components Info
         this.$emit('info : counterAll', this.$root.$el.children.length)
         this.$on('question : done', (async (section)=> await this.finishQuestion(section)))
+        this.$on('questions : rewind', (()=> this.rewindQuestions()))
         
     }
 
@@ -34,6 +35,11 @@ export class Contents extends QuestionsComponent {
         const $btn = $section.querySelector('button')
         $section.querySelector('textarea').disabled = true
         $btn.outerHTML = createAnswer({$section})
+    }
+
+    rewindQuestions() {
+        const sections = this.$root.$el
+        sections.innerHTML = createSection(this.store.getState(), {rewind: true})
     }
 
     onClick(event: any) {

@@ -1,12 +1,19 @@
+import { utils } from "../../../core/utils/utils"
 import { data } from "../../../data/data" 
 
+let array: { id: number; question: string; code?: string; solution: string; s_code?: [] }[] = []
 
-export function createSection(state: any){
+const { rewind } = utils()
+
+export function createSection(state: any, options?: {rewind: true}){
     
  const answer = state.tested.answer
- const rows: Array<string>  = data.map(((el, i)=> {
 
-        const answerFind = answer.find((answ: { id: string })=> answ.id == `${el.id}`)
+ array = options?.rewind ? rewind(data) : data
+
+ const rows: Array<string>  = array.map(((el, i)=> {
+
+        const answerFind = answer.find((answ: { id: number })=> answ.id == el.id)
         const question = `<p><strong>${i+1}. ${el.question}</strong></p>`
         const code = el.code ? `
                     <div class="code">
@@ -53,13 +60,12 @@ export function createSection(state: any){
 }
 
 export function createAnswer(element: {$section: any | number}) {
- 
-    const  answer = data.find((el, i)=>{
+    const  answer = array.find((el)=>{
         if (typeof element.$section !== 'number') {
             element.$section.classList.add('active')
-            return i === Number(element.$section.dataset.cnts)
+            return el.id === Number(element.$section.dataset.cnts)
         } else {
-            return i === Number(element.$section)
+            return el.id === Number(element.$section)
         }
     
     })

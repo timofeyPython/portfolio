@@ -1,15 +1,15 @@
  
-import { $ } from "../../../core/dom";
+import { Dom } from "../../../core/dom";
 import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
-import { HLET, IDom, IDomListener, IQSHeaderOptions } from "../../../types/interfaces"
+import { IQSHeaderOptions } from "../../../types/interfaces"
 
 export class Info extends QuestionsComponent {
     static className = 'qs_info'
 
-    $root: IDomListener;
+    $root;
     startDate: Date;
 
-    constructor($root: IDom, options: IQSHeaderOptions) {
+    constructor($root: Dom, options: IQSHeaderOptions) {
     
 
         super($root, {
@@ -17,7 +17,7 @@ export class Info extends QuestionsComponent {
             ...options
         })
 
-        this.$root
+        this.$root = $root
         this.start = new Date(options.store.getState().tested.startDate)
     }
 

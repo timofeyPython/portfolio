@@ -1,16 +1,15 @@
-import { HLET } from "../types/interfaces";
 import { utils } from "./utils/utils"
-import { IDomListener } from '../types/interfaces'
+import { Dom } from "./dom";
 const { getMethodName } = utils()
 
 
 export class DomListener {
     [method: string]: any;
 
-    $root: IDomListener;
+    $root: Dom;
     listeners: Array<string> | [];
 
-    constructor($root: {$el: HLET}, listeners: Array<string>) {
+    constructor($root: Dom, listeners: Array<string>) {
         if (!$root)  throw new Error('Не представлен $root для DomListener !')
         this.$root = $root
         this.listeners = listeners || []

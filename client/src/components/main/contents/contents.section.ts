@@ -59,7 +59,7 @@ export function section() {
                 `
 
                 return `
-                    <div class="block" id="bl_${index}">
+                    <div class="block" data-block="${index}">
                         <h3>${html.title}</h3>
                         <hr>
                         <div>
@@ -108,9 +108,52 @@ export function section() {
             return result.join('')
     }
 
-    const showBlock = () => {
+    const showBlock = (html: {title: string, description: string, img: any}) => {
 
+
+        let img = ``
+        if (Array.isArray(html.img)) 
+            img = `
+            <div style="text-align: center; margin-top: 25px;"><label>Используемые технологии</label></div>
+            <div class="imgs">      
+            ${html.img.map((img)=> `
+                <div class="img">
+                    <img src="${img}">
+                </div>
+            `).join('')}
+            </div>
+        `
+        else 
+            img = `
+            <div style="text-align: center; margin-top: 25px;"><label>Используемые технологии</label></div>
+            <div class="img">
+                <img alt="${html.title}" src="${html.img}">
+            </div>
+        `
+
+        return `
+         <div class="main_modalContent">
+            <div> 
+                <label><strong>Проект</strong>: ${html.title}</label>
+                  <div style="max-width: 800px;"> <strong>Описание: </strong> ${html.description}</div>
+            </div>
+            <hr>
+            <div>
+                <div>${img}</div>
+                <div style="text-align: center; margin-top: 25px;"><label>Код от приложения доступен:</label></div>
+            </div>
+            <div class="img">
+                <img class="github" src="${iconGithub}">
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button type="button" class="btn btn-success" id="transition">Перейти к проекту</button>
+                <button type="button" class="btn btn-secondary" id="close">Закрыть</button>
+            </div>
+                
+          </div>
+        
+        `
     }
 
-    return {lists_content, showBlock}
+    return {lists_content, showBlock, listsJob}
 }

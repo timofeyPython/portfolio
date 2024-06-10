@@ -1,5 +1,6 @@
-import { IDomListener, IQSHeaderOptions } from "../../types/interfaces";
+import { IQSHeaderOptions } from "../../types/interfaces";
 import { DomListener } from "../DomListener";
+import { Dom } from "../dom";
 
 export class MainComponents extends DomListener {
 
@@ -7,7 +8,7 @@ export class MainComponents extends DomListener {
         emitter;
 
 
-        constructor($root: IDomListener, options:IQSHeaderOptions ) {
+        constructor($root: Dom, options:IQSHeaderOptions ) {
             super($root, options.listeners)
             this.emitter = options.emitter
             this.name = options.name

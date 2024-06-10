@@ -7,3 +7,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+.qs_img {
+    background-color: #ffff; 
+    padding: 5px; 
+    border-radius: 25px; 
+    margin-right: 25px; 
+    cursor: pointer;
+    transition: 2s;
+}
+
+.qs_img:hover {
+    background-color: orange;
+}
