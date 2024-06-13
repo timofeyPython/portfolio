@@ -1,5 +1,5 @@
 import { $, Dom } from '../../../core/dom'
-import { MainComponents } from '../../../core/main/mainComponents'
+import { MainComponents } from '../mainComponents'
 import { IQSHeaderOptions } from '../../../types/interfaces'
 import { section } from './contents.section'
  
@@ -18,19 +18,18 @@ export class Contents extends MainComponents {
         this.modal = false
     }
 
-    getRoot() {
-         
+    toHtml() {
         return `
-            <div class="contents">
-                <h2 style="margin-top: 25px; text-align: center;">
-                    Вам представлен список моих работ в разных направлениях
-                </h2>
-                <div class="lists">
-                    ${lists_content()}
-                </div>
+        <div class="contents">
+            <h2 style="margin-top: 25px; text-align: center;">
+                Вам представлен список моих работ в разных направлениях
+            </h2>
+            <div class="lists">
+                ${lists_content()}
             </div>
-        
-        `
+        </div>
+    
+    `
     }
 
     init() {
@@ -47,7 +46,7 @@ export class Contents extends MainComponents {
         }
     }
 
-    showModal(object: {title: string, description: string, img: any}) {
+    showModal(object: {title: string, description: string, img: any, href: string, link_git: string;}) {
         const modal = $.create('div', 'main_modal')
         modal._html(showBlock(object))
         const elementClose: any = modal.$el.querySelector('#close')

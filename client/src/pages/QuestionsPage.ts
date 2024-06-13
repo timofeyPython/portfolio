@@ -1,5 +1,5 @@
-import { Page } from "../core/Page"
-import { Questions } from "../components/questions/Questions"
+import { Page } from "./Page"
+import { ConstuctorPage } from "../core/ConstructorPage"
 import { Header } from "../components/questions/header/Header"
 import { Contents } from "../components/questions/contents/Content"
 import { Info } from "../components/questions/info/Info"
@@ -9,13 +9,15 @@ import { rootReducer } from '../redux/rootReducer'
 import { normalizeInitialState } from '../redux/initialState'
 import {utils} from '../core/utils/utils'
 import { Modal } from "../components/questions/modal/Modal"
+ 
+ 
 
 const {storage, debounce} = utils()
 
 
 export class QuestionsPage extends Page {
     
-    components: Questions
+    components: ConstuctorPage
 
     getRoot() {
 
@@ -28,19 +30,21 @@ export class QuestionsPage extends Page {
         store.subscribe(stateListener)
         
         if (!state) 
-            this.components = new Questions({
+            this.components = new ConstuctorPage({
                 components: [Modal],
-                store
+                store,
+                root: 'questions'
             })        
         else 
-            this.components = new Questions({
+            this.components = new ConstuctorPage({
                 components: [
                     Header,
                     Title,
                     Info,
                     Contents
                 ],
-                store
+                store,
+                root: 'questions'
             })    
  
         return this.components.getRoot()

@@ -1,26 +1,29 @@
-import { Emitter } from "../../core/Emitter"
-import { $ } from "../../core/dom" 
-import { Store } from "../../core/store/Store"
-import { StoreSubscriber } from "../../core/store/StoreSubscriber"
+import { Emitter } from "./../core/Emitter"
+import { $ } from "./../core/dom" 
+import { Store } from "./../core/store/Store"
+import { StoreSubscriber } from "./../core/store/StoreSubscriber"
 
-
-export class Questions {
+export class ConstuctorPage {
 
     // Нужно узнать, как описать interface
     components: Array<any>
     emitter;
     store;
     subscriber;
+    root: string
+ 
 
-    constructor(options: {components: Array<any>, store: Store}) {
+    constructor(options: {components: Array<any>, store?: Store, root: string}) {
         this.components = options.components
         this.emitter = new Emitter()
         this.store = options.store
         this.subscriber = new StoreSubscriber(this.store) 
+        this.root = options.root
     }
+ 
 
     getRoot() {
-        const $root = $.create('div', 'questions')
+        const $root = $.create('div', this.root)
         const componentOptions = {
             emitter: this.emitter,
             store: this.store
@@ -32,6 +35,7 @@ export class Questions {
  
                 const $el = $.create('div', Component.className)
                 const component = new Component($el, componentOptions)
+                console.log(component)
                 $el._html(component.toHtml())
                 $root._append($el)
                 return component
@@ -50,6 +54,3 @@ export class Questions {
         console.log('Типо разъебали слушателей!')
     }   
 }
-
- 
- 

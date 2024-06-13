@@ -1,5 +1,5 @@
 import { $, Dom } from "../../../core/dom"
-import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
+import { QuestionsComponent } from "../../questions/QuestionsComponents"
 import { IQSHeaderOptions, HLET } from "../../../types/interfaces"
 import { observer } from './title.observer'
 import * as actions from '../../../redux/action'

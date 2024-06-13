@@ -1,5 +1,5 @@
 import { Dom } from "../../../core/dom";
-import { QuestionsComponent } from "../../../core/questions/QuestionsComponents";
+import { QuestionsComponent } from "../../questions/QuestionsComponents";
 import { utils } from "../../../core/utils/utils";
 import { IQSHeaderOptions } from "../../../types/interfaces";
 

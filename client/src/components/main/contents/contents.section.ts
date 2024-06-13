@@ -13,7 +13,7 @@ export function section() {
             title: 'Тестирование по JS',
             description: 'В данном тесте представлены вопросы по ЯП JavaScript, в создании теста использовались такие технологии, как Webpack, Typescript, SCSS. Данный модуль был написан без использования фреймворков и сторонних библиотек, главная задача была создать свой фреймворк, чтобы понять принципы работы современных технологий.',
             link_description: 'Ниже представлен код приложения из Github',
-            link_git: '/github',
+            link_git: 'https://github.com/timofeyPython/portfolio/blob/main/client/src/pages/QuestionsPage.ts',
             img: [iconTS, iconSCSS, iconWP]
         },
         {
@@ -108,7 +108,7 @@ export function section() {
             return result.join('')
     }
 
-    const showBlock = (html: {title: string, description: string, img: any}) => {
+    const showBlock = (html: {title: string, description: string, img: any, href: string, link_git: string}) => {
 
 
         let img = ``
@@ -143,10 +143,10 @@ export function section() {
                 <div style="text-align: center; margin-top: 25px;"><label>Код от приложения доступен:</label></div>
             </div>
             <div class="img">
-                <img class="github" src="${iconGithub}">
+                <a href="${html.link_git}" target="blank"><img class="github" src="${iconGithub}"></a>
             </div>
             <div style="display: flex; justify-content: space-around;">
-                <button type="button" class="btn btn-success" id="transition">Перейти к проекту</button>
+                <a href="${html.href}"><button type="button" class="btn btn-success" id="transition">Перейти к проекту</button></a> 
                 <button type="button" class="btn btn-secondary" id="close">Закрыть</button>
             </div>
                 

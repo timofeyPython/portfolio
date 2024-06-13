@@ -1,19 +1,24 @@
 import { $ } from "../core/dom";
-import { Page } from "../core/Page";
+import { Page } from "./Page";
 import { HLET } from "../types/interfaces";
 import { Header } from "../components/main/header/Header";
-import { Main } from "../components/main/Main";
+import { ConstuctorPage } from "../core/ConstructorPage"
 import { Contents } from "../components/main/contents/Contents";
 
 export class MainPage extends Page {
     
-    components: Main;
+    components: ConstuctorPage;
 
     getRoot() {
-        this.components = new Main([
-            Header,
-            Contents
-        ])
+        this.components = new ConstuctorPage(
+            {
+              components: [
+                    Header,
+                    Contents
+                ],
+                root: 'main'
+            }
+        )
 
         return this.components.getRoot()
     }

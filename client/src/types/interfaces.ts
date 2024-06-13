@@ -1,3 +1,4 @@
+import { Dom } from "../core/dom";
 import { Store } from "../core/store/Store";
 
 export interface HLET extends HTMLElement {}
@@ -14,11 +15,11 @@ export  interface Page {
 }
 
 export interface IQSHeaderOptions {
-    name: string;
-    listeners: Array<string>;
-    emitter: any
-    store: Store;
-    subscribe: Array<any>
+    name?: string;
+    listeners?: Array<string>;
+    emitter?: any
+    store?: Store;
+    subscribe?: Array<any>
 }
 
 // Routers
@@ -43,3 +44,4 @@ export interface IInitalState {
         answer_count: number;
     }
 }
+

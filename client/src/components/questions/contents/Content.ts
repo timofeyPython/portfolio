@@ -1,4 +1,4 @@
-import { QuestionsComponent } from "../../../core/questions/QuestionsComponents"
+import { QuestionsComponent } from "../../questions/QuestionsComponents"
 import { IQSHeaderOptions } from "../../../types/interfaces"
 import { createSection, createAnswer } from "./contents.section"
 import * as actions from '../../../redux/action'
