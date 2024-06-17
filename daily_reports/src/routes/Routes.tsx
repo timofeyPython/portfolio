@@ -1,36 +1,32 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from '../views/HomePage'
+import { Route, Routes } from 'react-router-dom';
+import { PrivateRoute } from '../components/Route/PrivateRoute';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from '../services/context/AuthProvider';
+
 import { AuthPage } from '../views/AuthPage'
-
-
-export function One() {
+import { NotFoundPage } from '../views/NoFoundPage';
+import { MainPage } from '../views/MainPage';
+import { MainComponent } from '../components/Main/MainComponent';
+ 
+ 
+ export function useRoutes() { 
+ 
     return(
-        <div className="One">
-            <h1>Домашняя страница 1</h1>
-        </div>
+            <BrowserRouter>
+                <AuthProvider>
+                        <Routes>
+                            <Route path='/login' element={<AuthPage/>}/>
+                            <Route element={<PrivateRoute />}>
+                                <Route element={<MainPage/>}>
+                                    <Route path='/' element={<MainComponent/>}/>
+                                    <Route path="*" element={<NotFoundPage/>} />
+                                </Route>
+                            </Route>
+                        </Routes>        
+                </AuthProvider>
+            </BrowserRouter>
     )
 }
 
-
-export function Two() {
-    return(
-        <div className="Two">
-            <h1>Домашняя страница 2</h1>
-        </div>
-    )
-}
-
-
-export function Router() { 
-    console.log('check session')
-    return(
-        <BrowserRouter>
-            <Routes>
-                <Route path='login' element={<AuthPage/>}/>
-                <Route path='' element={<Home/>}/>
-                <Route path='one' element={<One/>}/>
-                <Route path='two' element={<Two/>}/>
-            </Routes>
-        </BrowserRouter>
-    )
-}
+ 
+ 

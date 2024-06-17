@@ -1,7 +1,7 @@
-import { Form } from "../components/Autheciate/Form";
+import { Autheciate } from "../components/Autheciate/AutheciateComponent";
 
 export function AuthPage() {
     return(
-        <Form/>
+        <Autheciate/>
     )
 }
