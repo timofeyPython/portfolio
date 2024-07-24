@@ -1,0 +1,24 @@
+ .list {
+    border: 1px solid rgba(128, 128, 128, 0.568);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+ }
+
+ .list:hover {
+   background: rgba(205, 205, 205, 0.222);
+ }
+
+ .history {
+    border: 1px solid rgba(128, 128, 128, 0.568);
+    padding: 10px;
+ }
+
+ button {
+   margin: 5px!important;
+}
+
+.modal {
+   
+}

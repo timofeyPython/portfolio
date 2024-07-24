@@ -5,7 +5,7 @@ import { useAuth } from '../../services/hooks/useAuth';
 export const PrivateRoute = () => {
     const { isAuthenticated } = useAuth()// используем контекст для получения значения isAuthenticated
     const location = useLocation(); // получаем текущий маршрут с помощью хука useLocation()
- 
+  
     return (
       isAuthenticated === true ?
         <Outlet />

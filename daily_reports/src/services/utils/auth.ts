@@ -9,15 +9,14 @@ export function checkAuth() {
 
         // async logic
         console.log('auth')
-
         return {
-   
-                status: true,
-                infoUser: {
-                        login: 'ttep001',
-                        department: 'ОРиПИС',
-                        position: 'Начальник отдела',
-                },
-                
+              isAuth: true,
+              info: {
+                login: 'ttep001',
+                name: 'Тепаев Т.Н.',
+                department: 'ОРиПИС',
+                position: 'Начальник отдела',
+                rights: ['admin']
+              }
         }
 }

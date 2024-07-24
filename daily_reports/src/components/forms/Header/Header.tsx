@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './header.scss'
 
 
-import { useAuth } from '../../services/hooks/useAuth'
+import { useAuth } from '../../../services/hooks/useAuth'
 
 export function Header() {
 
@@ -13,7 +13,7 @@ export function Header() {
         <>
             <div className="header">
                 <div>
-                    <label><strong>Мои задания, отдел {info.department}, должность {info.position}, логин {info.login}</strong></label>
+                    <label><strong> Отдел:</strong>  {info.department} | <strong> Должность</strong> : {info.position} | <strong> Логин: </strong> {info.login} | <strong>ФИО</strong>: {info.name}</label>
                     <span>Время: {date}</span>
                 </div>
                 

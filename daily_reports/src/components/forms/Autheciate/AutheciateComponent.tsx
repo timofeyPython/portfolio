@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react"
-import { logIn } from "../../services/utils/auth"
+import { logIn } from "../../../services/utils/auth"
 import  './autheciate.scss'
-import { useAuth } from '../../services/hooks/useAuth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../services/hooks/useAuth';
+import { useLocation, useNavigate, Navigate } from 'react-router-dom';
 
 export function Autheciate() {
 
@@ -21,16 +21,20 @@ export function Autheciate() {
 
     }, [setLogin, setPassword])
 
-  
- 
     const clickAuth = () => {
         if (logIn(login, password)) {
-            setAuth(true)
+            setAuth ? setAuth(true) : ''
             navigate(from, { replace: true });
         }
     }
- 
-
+    
+    if (isAuthenticated)  {
+        return(
+            <Navigate to="/" replace />
+        )
+    }
+    
+    
 
     return(
         <div className="page">
@@ -51,7 +55,7 @@ export function Autheciate() {
                         <label htmlFor="password">Пароль:</label>
                         <input 
                             id="password"
-                            type="password" 
+                            type="current-password" 
                             value={password}
                             onChange={handleFormChange}
                         

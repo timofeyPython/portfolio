@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
-import type { TAuthCheck, TAuthContext } from '../../types/types'
+import type { TAuthContext } from '../../types/types'
 import { checkAuth } from "../utils/auth";
+ 
 
 export const AuthContext = createContext<TAuthContext>({
     isAuthenticated: false,
@@ -8,19 +9,18 @@ export const AuthContext = createContext<TAuthContext>({
         login: '',
         department: '',
         position: '',
+        name: ''
     },
-    setAuth: () => {},
-    setInfo: () => {}
- });
+    setAuth: (check: boolean) => {return check},
+});
 
 
- export const AuthProvider = ({ children }: { children: JSX.Element }) => {
-    const {infoUser, status} = checkAuth()
-    const [isAuthenticated, setAuth] = useState<boolean>(status)
-    const [info, setInfo] = useState<TAuthCheck>(infoUser)
+export const AuthProvider = ({ children }: { children: JSX.Element }) => {
+    const {isAuth, info} = checkAuth()
+    const [isAuthenticated, setAuth] = useState<boolean>(isAuth)
  
     return (
-        <AuthContext.Provider value={{ isAuthenticated, info, setAuth, setInfo }}>
+        <AuthContext.Provider value={{ isAuthenticated, info, setAuth }}>
             {children}
         </AuthContext.Provider>
     )
