@@ -2,7 +2,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
  
 export const dbconnection = SequelizeModule.forRoot({
     dialect: 'postgres',
-    host: 'vla-ad01-app16',
+    host: 'localhost',
     port: 5432,
     username: 'monitor',
     password: 'consumer',

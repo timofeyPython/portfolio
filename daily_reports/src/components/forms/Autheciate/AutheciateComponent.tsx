@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { logIn } from "../../../services/utils/auth"
+import { checkAuth, logIn } from "../../../services/utils/auth"
 import  './autheciate.scss'
 import { useAuth } from '../../../services/hooks/useAuth';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
@@ -8,10 +8,10 @@ export function Autheciate() {
 
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const {isAuthenticated, setAuth} = useAuth()
+    const {auth, setAuth} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/main'
  
     const handleFormChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
         if (event.target.id === 'login')
@@ -21,16 +21,18 @@ export function Autheciate() {
 
     }, [setLogin, setPassword])
 
-    const clickAuth = () => {
-        if (logIn(login, password)) {
-            setAuth ? setAuth(true) : ''
+    const clickAuth = async () => {
+        const request = await logIn(login, password)
+        if (request) {
+            const auth = await checkAuth()
+            setAuth ? setAuth(auth) : ''
             navigate(from, { replace: true });
         }
     }
     
-    if (isAuthenticated)  {
+    if (auth.isAuth)  {
         return(
-            <Navigate to="/" replace />
+            <Navigate to="/main" replace />
         )
     }
     
@@ -67,7 +69,7 @@ export function Autheciate() {
                         </button>
                     </div>
 
-                    {isAuthenticated && <div>Вы авторизованы</div>}
+                    {auth.isAuth && <div>Вы авторизованы</div>}
                 </form>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { AuthPage } from '../page/AuthPage'
 import { NotFoundPage } from '../page/NoFoundPage';
 import { AppPage } from '../page/AppPage';
 import { TaskPage } from '../page/TasksPage';
+import { MainPage } from '../page/MainPage';
  
 export function useRoutes() { 
 
@@ -17,8 +18,8 @@ export function useRoutes() {
                             <Route path='/login' element={<AuthPage/>}/>
                             <Route element={<PrivateRoute />}>
                                 <Route element={<AppPage/>}>
-                                    {/* <Route path='/' element={<MainComponent/>}/> */}
-                                    <Route path='/' element={<TaskPage/>} />
+                                    <Route path='/main' element={<MainPage/>}/>
+                                    <Route path='/tasks' element={<TaskPage/>} />
                                     <Route path="*" element={<NotFoundPage/>} />
                                 </Route>
                             </Route>

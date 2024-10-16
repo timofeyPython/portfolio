@@ -1,26 +1,50 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import type { TAuthContext } from '../../types/types'
 import { checkAuth } from "../utils/auth";
  
 
 export const AuthContext = createContext<TAuthContext>({
-    isAuthenticated: false,
-    info: {
-        login: '',
-        department: '',
-        position: '',
-        name: ''
+    auth: {
+        isAuth: false,
+        info: {
+            login: '',
+            department: '',
+            position: '',
+            name: ''
+        },
+        roles: []
     },
-    setAuth: (check: boolean) => {return check},
+    setAuth: (auth: any) => {return auth}
 });
 
-
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
-    const {isAuth, info} = checkAuth()
-    const [isAuthenticated, setAuth] = useState<boolean>(isAuth)
+    const [auth, setAuth] = useState<any>({
+        isAuth: true,
+        info: {
+            login: '',
+            department: '',
+            position: '',
+            name: ''
+        },
+        roles: []  
+    })
+        
+
+    useEffect(()=> {
+        (async ()=> { 
+            try {
+                const res = await checkAuth()
+                setAuth(res)
+            } catch (e) {
+                console.log('Ошибка:', e)
+                setAuth({isAuth: false})
+            }
+        })()
+    }, [])
+
  
     return (
-        <AuthContext.Provider value={{ isAuthenticated, info, setAuth }}>
+        <AuthContext.Provider value={{ auth, setAuth }}>
             {children}
         </AuthContext.Provider>
     )

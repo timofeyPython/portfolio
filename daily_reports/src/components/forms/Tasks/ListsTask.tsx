@@ -67,10 +67,6 @@ const data = [
     }
 ]
 
-
-
- 
-
 export function ListsTasks() {
     
     const changeTask = (id: string) => {

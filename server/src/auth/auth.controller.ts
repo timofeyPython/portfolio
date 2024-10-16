@@ -16,7 +16,6 @@ export class AuthController {
     ) {
       const user = await this.authService.signIn(signInDto.login, signInDto.password);
       request.session.user = user
-      console.log(request)
       return {
         message: `Добро пожаловать в систему ${user.login}`
       }
@@ -25,7 +24,7 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @Get('check')
     async check(@Req() request: Request) {
-      console.log(request.session)
+ 
       if (!request.session?.user) {
         throw new UnauthorizedException(`Сессия не установлена!`);
       }

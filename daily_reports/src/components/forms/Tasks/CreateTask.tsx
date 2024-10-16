@@ -113,7 +113,7 @@ export function CreateTask(set: {setShow: ((show: boolean)=>void )}) {
 
                 <div style={{ justifyContent: 'space-between', display: 'flex' }}>
                     <button type="button" className="btn btn-success" onClick={()=> createEntry()}>Сохранить</button>
-                    <button  type="button" className="btn btn-secondary" onClick={()=> set.setShow(false)}>close</button>
+                    <button  type="button" className="btn btn-secondary" onClick={()=> set.setShow(false)}>Закрыть</button>
                 </div>
       
             </form>

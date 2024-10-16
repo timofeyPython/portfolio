@@ -8,15 +8,14 @@ export function Header() {
 
     const [date, setDate] = useState(`${(new Date()).toLocaleDateString()} ${(new Date()).toLocaleTimeString()}`)
     setInterval(()=> setDate(`${(new Date()).toLocaleDateString()} ${(new Date()).toLocaleTimeString()}`), 1000)
-    const { info } = useAuth()
+    const { auth } = useAuth()
     return(
         <>
             <div className="header">
                 <div>
-                    <label><strong> Отдел:</strong>  {info.department} | <strong> Должность</strong> : {info.position} | <strong> Логин: </strong> {info.login} | <strong>ФИО</strong>: {info.name}</label>
+                    <span><strong> Отдел:</strong>  {auth?.info?.department} ⚪ <strong> Должность</strong> : {auth?.info?.position} ⚪ <strong> Логин: </strong> {auth?.info?.login} ⚪ <strong>ФИО</strong>: {auth?.info?.name}</span>
                     <span>Время: {date}</span>
                 </div>
-                
             </div>
         </>
     )

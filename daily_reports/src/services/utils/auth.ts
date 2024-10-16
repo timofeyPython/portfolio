@@ -1,22 +1,26 @@
+import { clientAPI } from "./api"
+  
 
-export function logIn(login: string, password: string) {
-        if (!login || !password) alert('Не введы данные для ввода!') 
-        if (login === 'user' && password === '123') return true
-        return false 
+export async function logIn(login: string, password: string) {
+        
+        const api = clientAPI({
+                method: 'POST',
+                path: 'auth/login',
+                data: {
+                        login,
+                        password
+                }
+        })
+        const validation = await api()
+        return validation 
 }
 
-export function checkAuth() {
+export async function checkAuth() {
 
-        // async logic
-        console.log('auth')
-        return {
-              isAuth: true,
-              info: {
-                login: 'ttep001',
-                name: 'Тепаев Т.Н.',
-                department: 'ОРиПИС',
-                position: 'Начальник отдела',
-                rights: ['admin']
-              }
-        }
+        const api = clientAPI({
+                method: 'GET',
+                path: 'auth/check'
+        })
+        const validation = await api()
+        return  validation
 }

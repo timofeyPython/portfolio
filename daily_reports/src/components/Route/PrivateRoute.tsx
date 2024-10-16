@@ -3,11 +3,11 @@ import { useAuth } from '../../services/hooks/useAuth';
 // Компонент PrivateRoute используется для защиты определенных маршрутов в приложении.
 
 export const PrivateRoute = () => {
-    const { isAuthenticated } = useAuth()// используем контекст для получения значения isAuthenticated
+    const { auth } = useAuth()// используем контекст для получения значения isAuthenticated
     const location = useLocation(); // получаем текущий маршрут с помощью хука useLocation()
   
     return (
-      isAuthenticated === true ?
+      auth.isAuth === true ?
         <Outlet />
         :
         <Navigate to="/login" state={{ from: location }} replace />
