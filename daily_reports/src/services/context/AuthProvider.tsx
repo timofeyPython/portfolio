@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import type { TAuthContext } from '../../types/types'
 import { checkAuth } from "../utils/auth";
+import { clientAPI } from "../utils/api";
  
 
 export const AuthContext = createContext<TAuthContext>({
@@ -28,21 +29,17 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
         },
         roles: []  
     })
-        
+ 
+    useEffect(()=> { 
 
-    useEffect(()=> {
-        (async ()=> { 
-            try {
-                const res = await checkAuth()
-                setAuth(res)
-            } catch (e) {
-                console.log('Ошибка:', e)
-                setAuth({isAuth: false})
-            }
-        })()
+        const auth = async () => {
+            const validation = await checkAuth()
+            setAuth(validation)
+        }
+       
+       auth()
     }, [])
 
- 
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}

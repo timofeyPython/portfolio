@@ -1,50 +1,60 @@
 import { useState } from "react"
 import UI from "../../UI/index"
-
-const data = {
-    options: [
-        {
-            value: 'uuid0',
-            description: 'Значение по умолчанию'
-        },
-        {
-            value: 'uuid1',
-            description: '1'
-        },
-        {
-            value: 'uuid2',
-            description: '2'
-        }
-    ],
-    label: 'Выберите приоритет задачи'
-}
-
-
-
+import { useSelector } from "react-redux"
+import { selectTasks, selectUser } from "../../../store/selectors"
+import { toast } from 'react-toastify';
+import { useAppDispatch } from "../../../store/hooks";
+import { createTask } from "../../../store/tasks/actions";
 export function CreateTask(set: {setShow: ((show: boolean)=>void )}) {
-
-    
+ 
     const [task, setTask] = useState('')
-    const [priority, setPriority] = useState<null | string>(null) 
+    const [priority, setPriority] = useState<string | null>(null) 
     const [description, setDescription] = useState('')
-    const [endDate, setEndDate] = useState(new Date());
-     
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [endDate, setEndDate] = useState(new Date())
+    const [startDate, setStartDate] = useState(new Date());
+    const tasks = useSelector(selectTasks)
+    const user = useSelector(selectUser)
+    const dispatch = useAppDispatch()
+    const optionsUI = {
+        optionsSelect: tasks.map((task)=> (
+                {
+                    value: task.number,
+                    description: `${task.number}`
+                }   
+            )
+        ),
+        label: 'Выберите приоритет задачи'
+    }
+    optionsUI.optionsSelect.unshift({
+        value: 0,
+        description: 'Значение по умолчанию'
+    })
+
     const createEntry = () => {
  
         if (task && description) {
-            console.log('Запись создана', {
-                id: 'uuid',
-                priority: priority,
+            dispatch(createTask({
                 name: task,
-                content: description,
-                status: 'В работе',
-                dateEnd: endDate
-            })
-
+                description,
+                number: priority ? +priority : tasks.length+1,
+                createdUser: {
+                    name: user.info.name,
+                    id: user.info.id
+                },
+                assigned: {
+                    name: user.info.name,
+                    id: user.info.id
+                },
+                stage: {
+                    steps: []
+                },
+                startTask: startDate,
+                endTask: endDate,
+                grId: user.info.grId
+            }))
             set.setShow(false)
         } else {
-            console.log('Введите задачу и описание задачи !')
+            toast.error('Введите задачу и описание задачи !')
         }
     }
 
@@ -66,16 +76,7 @@ export function CreateTask(set: {setShow: ((show: boolean)=>void )}) {
                         </textarea>
                         <label htmlFor="task">Задача:</label>
                     </div>
-                </div>
-
-                <div className="mb-3">
-                    <UI.MySelect
-                        options={data.options}
-                        label={data.label}
-                        setPriority={setPriority}
-                    /> 
-                </div>
-                
+                </div>                
                 <div className="mb-3">
                     <div className="form-floating mb-3">
                         <textarea  
@@ -90,14 +91,20 @@ export function CreateTask(set: {setShow: ((show: boolean)=>void )}) {
                         <label htmlFor="description">Описание:</label>
                     </div>
                 </div>
-
+                <div className="mb-3">
+                    <UI.MySelect
+                        options={optionsUI.optionsSelect}
+                        label={optionsUI.label}
+                        setPriority={setPriority}
+                    /> 
+                </div>
                 <div className="row g-3 align-items-center">
                     <div className="col-auto">
-                        <label htmlFor="date" className="col-form-label">Срок выполнения: </label>
+                        <label htmlFor="startDate" className="col-form-label">Старт задания: </label>
                     </div>
                     <div className="col-auto">
                         <UI.MyDatepicker
-                            selected={endDate} onChange={(date) => setEndDate(date)}
+                            id="startDate" selected={startDate} onChange={(date) => setStartDate(date)}
                         />
                     </div>  
                     <div className="col-auto">
@@ -106,16 +113,26 @@ export function CreateTask(set: {setShow: ((show: boolean)=>void )}) {
                         </span>
                     </div>
                 </div>
-
-         
-
+                <div className="row g-3 align-items-center">
+                    <div className="col-auto">
+                        <label htmlFor="endDate" className="col-form-label">Срок выполнения: </label>
+                    </div>
+                    <div className="col-auto">
+                        <UI.MyDatepicker
+                            id="endDate" selected={endDate} onChange={(date) => setEndDate(date)}
+                        />
+                    </div>  
+                    <div className="col-auto">
+                        <span className="form-text">
+                        Возможно изменить после создания
+                        </span>
+                    </div>
+                </div>
                 <hr />
-
                 <div style={{ justifyContent: 'space-between', display: 'flex' }}>
                     <button type="button" className="btn btn-success" onClick={()=> createEntry()}>Сохранить</button>
                     <button  type="button" className="btn btn-secondary" onClick={()=> set.setShow(false)}>Закрыть</button>
                 </div>
-      
             </form>
         </>
     )

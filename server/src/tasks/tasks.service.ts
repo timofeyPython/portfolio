@@ -18,15 +18,31 @@ export class TasksService {
                     model: Groups,
                     where: { id: grId }
                 }
-            ]
+            ],
+            order: [['number', 'ASC']]
     })
         return tasks
     }
 
-    async findOne(grId: string): Promise<Task> {
+    async findOne(id: string): Promise<Task> {
         const task = await this.taskModel.findOne({
-            where: { grId }
+            where: { id }
         })
         return task
+    }
+
+    async create(obj: {
+        name: string
+        description: string
+        number: number
+        createdUser: any
+        assigned: any
+        stage: any
+        startTask: Date
+        endTask: Date
+        grId: string
+    }) {
+        console.log(obj)
+       return await this.taskModel.create(obj)
     }
 }

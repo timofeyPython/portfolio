@@ -1,9 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { addTask, removeTask } from "./actions"
-import { getTasks } from "./api"
-import { ITasks } from "./type"
-
+import { getTasks, createTask } from "./actions"
  
+import { ITasks } from "./type"
 
 export default createReducer(Array<ITasks>, (builder)=> {
     builder.addCase(getTasks.fulfilled, (state, action) => {
@@ -11,10 +9,11 @@ export default createReducer(Array<ITasks>, (builder)=> {
  
         return state
     })
-    builder.addCase(removeTask, (state) => {
-        state.pop()
+
+    builder.addCase(createTask.fulfilled, (state, action) => {
+ 
+        state.push(action.payload.entry)
+  
         return state
     })
 })
-
- 

@@ -1,4 +1,6 @@
 import { useRoutes } from './routes/Routes.tsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './style.scss'
 
 
@@ -7,6 +9,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       { routes }
     </>
  

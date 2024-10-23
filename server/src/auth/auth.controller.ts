@@ -16,6 +16,7 @@ export class AuthController {
     ) {
       const user = await this.authService.signIn(signInDto.login, signInDto.password);
       request.session.user = user
+
       return {
         message: `Добро пожаловать в систему ${user.login}`
       }
@@ -24,7 +25,7 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     @Get('check')
     async check(@Req() request: Request) {
- 
+
       if (!request.session?.user) {
         throw new UnauthorizedException(`Сессия не установлена!`);
       }
@@ -32,9 +33,15 @@ export class AuthController {
       const user = request.session.user 
       const rights = await this.authService.check(user.login)
       request.session.user.rights = rights.roles
-      
+
       return {
-        isAuth: true
+        isAuth: true,
+        roles: rights.roles,
+        info: {
+          ...user.info, 
+          id: user.id,
+          grId: user.grId
+        }
       }
     }
 }

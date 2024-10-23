@@ -21,6 +21,4 @@ export function transcription(str: string) {
     }
     
     return res
-} 
-
-
+}

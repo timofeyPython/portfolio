@@ -22,7 +22,7 @@ export class RolesGuard implements CanActivate {
     const findRole = req.session.user.rights.find((role: string)=> roles.find((r)=> role === r )) 
     if (!findRole) 
       throw new UnauthorizedException(`Нет прав! ${roles}`)
-
+    
     if (ERights.EMPL && ERights.H_O_D) {
       const user = req.session.user
       const addedLikeOperator = [req.query.gr].map((word) => ({ [Op.iLike]: `%${word || ""}%` })) //this line will add iLike operator for each string
@@ -41,7 +41,7 @@ export class RolesGuard implements CanActivate {
           'details.array':  {[Op.and] : addedLikeOperator}
         }
       })
-     console.log('good', right)
+ 
       if (!right) 
         return false
     }

@@ -1,14 +1,18 @@
 import { useCallback, useState } from "react"
-import { checkAuth, logIn } from "../../../services/utils/auth"
+import { logIn } from "../../../services/utils/auth"
+import { useLocation, useNavigate, Navigate } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from "../../../store/hooks"
+import { selectUser } from "../../../store/selectors"
+import { getAuth } from "../../../store/user/actions"
 import  './autheciate.scss'
-import { useAuth } from '../../../services/hooks/useAuth';
-import { useLocation, useNavigate, Navigate } from 'react-router-dom';
+ 
 
 export function Autheciate() {
 
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const {auth, setAuth} = useAuth()
+    const user = useAppSelector(selectUser)
+    const dispath = useAppDispatch()
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/main'
@@ -24,21 +28,15 @@ export function Autheciate() {
     const clickAuth = async () => {
         const request = await logIn(login, password)
         if (request) {
-            const auth = await checkAuth()
-            setAuth ? setAuth(auth) : ''
-            navigate(from, { replace: true });
+            dispath(getAuth())
+            navigate(from, { replace: true })
         }
     }
-    
-    if (auth.isAuth)  {
-        return(
-            <Navigate to="/main" replace />
-        )
-    }
-    
-    
-
+ 
     return(
+        user.isAuth ?      
+        <Navigate to="/main" replace /> 
+        :
         <div className="page">
             <div className="content">
                 <form>
@@ -68,8 +66,6 @@ export function Autheciate() {
                             Войти
                         </button>
                     </div>
-
-                    {auth.isAuth && <div>Вы авторизованы</div>}
                 </form>
             </div>
         </div>

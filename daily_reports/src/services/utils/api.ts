@@ -1,6 +1,6 @@
 import axios from "axios"
 import { API } from "../../services/utils/constants"
- 
+import { toast } from "react-toastify"
 
 export function clientAPI (options: {
     method: 'POST' | 'GET' | 'PUT' | 'DELETE'
@@ -32,36 +32,34 @@ export function clientAPI (options: {
             }
      
         case 'POST': 
-        return async () => {
-            try {
-                const url = `${API}/${options.path}`
-                const response = await axios.post(
-                    url,
-                    options.data, 
-                    {
-                        headers: {
-                                'Content-Type': 'application/json'
-                        },
-                        withCredentials: true
-                    }
-                )
+            return async () => {
+                try {
+                    const url = `${API}/${options.path}`
+                    const response = await axios.post(
+                        url,
+                        options.data, 
+                        {
+                            headers: {
+                                    'Content-Type': 'application/json'
+                            },
+                            withCredentials: true
+                        }
+                    )
 
-                if (!response)
+                    if (!response) 
+                        return false
+
+                    toast.success(response.data?.message)
+                    return response.data
+                } catch (e: any) {
+                    toast.error(e.response.data?.message.join(','))
                     return false
-
-                return true
-            } catch (e) {
-                console.log('ERORR: request POST')
-                return false
+                }
             }
-        }
-
+        
         default:
             return () => ''
     }
-
-
- 
 }
 
  

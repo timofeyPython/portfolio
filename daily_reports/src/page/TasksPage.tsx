@@ -8,12 +8,16 @@ export function TaskPage() {
     
     return(
         <div>
-            <h1>Мои задачи</h1>
-            <hr />
-            <ListsTasks/>
-            <div>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between'
+                }}>
+                <h1>Мои задачи</h1>
                 <button type="button" className="btn btn-success" onClick={()=> setShow(true)}>Создать задачу</button>
             </div>
+            
+            <hr />
+            <ListsTasks/>
             {
                 show && <UI.MyModal>
                     <CreateTask 
@@ -21,8 +25,6 @@ export function TaskPage() {
                     />
                 </UI.MyModal>
             }
-       
- 
         </div>
     )
 }

@@ -1,6 +1,6 @@
- export function MySelect(select: {options: Array<{value: string, description: string}>, 
+ export function MySelect(select: {options: Array<{value: string | number, description: string}>, 
                         selected?: {
-                            value: string | null
+                            value: string  | number | null
                         },
                         label: string,
                         setPriority: ((val: string | null)=>void)

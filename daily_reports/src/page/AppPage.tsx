@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom"
-import { Header } from "../components/forms/Header/Header"
- 
-
+import Navbar from "../components/navbar/Navbar"
 
 export function AppPage() {
     return(
         <div className="contents">
-            <Header/>
+            <Navbar/>
             <div className="view">
                 <Outlet />
             </div>
