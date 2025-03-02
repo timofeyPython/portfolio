@@ -1,0 +1,25 @@
+.container {
+  margin-top: 2%;
+}
+
+.pagination {
+  border: none;
+  --bs-pagination-padding-x: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.page-link {
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
+  color: gray;
+}
+
+.active > .page-link,
+.page-link.active {
+  color: black;
+  border-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 1px solid gray;
+}

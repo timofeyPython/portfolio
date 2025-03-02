@@ -1,0 +1,20 @@
+.dialog {
+    z-index: 2;
+    position:fixed;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.dialogContent {
+    z-index: 1;
+    margin: auto;
+    padding: 15px;
+    background-color: #ffff;
+    border-radius: 5px;
+    box-shadow: 0 0 11px 2px #392c1e;
+}

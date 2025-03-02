@@ -1,0 +1,66 @@
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.list-leave-active {
+  position: absolute;
+}
+
+// .tableList-enter-active,
+// .tableList-leave-active {
+//   transition: opacity 0.5s ease;
+// }
+
+// .tableList-enter-from,
+// .tableList-leave-to {
+//   opacity: 0;
+// }
+
+// .card {
+//   border-collapse: collapse;
+//   outline: 1px solid #d6d4d4;
+//   border-radius: 0%;
+// }
+
+// .card:hover {
+//   box-shadow: 0px 0px 10px 0 #000000;
+// }
+
+// .pagination {
+//   border-radius: 0px;
+// }
+// .paginationBlock {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 30px;
+// }
+// .page-link {
+//   color: black;
+// }
+// .page-item {
+//   border-radius: 0px;
+//   --bs-pagination-hover-color: rgb(128, 128, 128);
+//   --bs-pagination-focus-color: gray;
+//   color: black;
+// }
+// .page-item .active {
+//   background-color: rgb(150 149 149 / 25%);
+//   border-color: rgba(131, 131, 131, 0.703);
+//   color: black;
+// }
+
+// .page-link {
+//   --bs-pagination-focus-box-shadow: 0;
+// }
+
+// .main {
+//   background-color: #efeeec;
+// }

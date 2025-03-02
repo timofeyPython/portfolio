@@ -1,0 +1,15 @@
+.qs_title {
+    margin: 3%;
+    padding: 2%;
+    background-color: rgb(129 129 129 / 8%);
+    border: 1px solid #80808024;
+    border-radius: 5px;
+    button {
+        border-radius: 0px;
+    }
+
+    .counter {
+        display: flex; 
+        justify-content: space-between;
+    }
+}

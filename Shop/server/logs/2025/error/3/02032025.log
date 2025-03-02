@@ -1,0 +1,143 @@
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:09+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:10+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:11+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:11+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:11+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:12+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:12+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:12+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:12+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:12+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:26+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:31:28+03:00| Маршрут: /api/works? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:56+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:58+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:36:59+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:00+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:01+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:02+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:03+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:18+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:20+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:23+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:49+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:50+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/types/colortemps? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/types/materials? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/types/light? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/types/categories? | Метод: GET | Сообщение: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:37:54+03:00| Маршрут: /api/products?page=1&price=[0,70000]& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:38:37+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 0.0.0.0:1996 |
+Время: 2025-03-02T13:39:09+03:00| Маршрут: /api/products?page=1& | Метод: GET | Сообщение: Ошибка при получении данных, подроности: connect ECONNREFUSED 127.0.0.1:1996 |
+Время: 2025-03-02T22:51:10+03:00| Маршрут: /api/users/registration | Метод: POST | Сообщение: email: Не передано значения для свойства, password: Не передано значения для свойства, role: Не передано значения для свойства |
+Время: 2025-03-02T22:51:20+03:00| Маршрут: /api/users/registration | Метод: POST | Сообщение: role: Не передано значения для свойства |

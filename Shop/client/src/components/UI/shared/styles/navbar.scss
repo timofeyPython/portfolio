@@ -1,0 +1,87 @@
+// .nav-link {
+//   transition: all 0.4s ease-in-out;
+// }
+// .nav-link:hover {
+//   color: white;
+// }
+.navbar {
+  margin-left: 7%;
+  // background: rgb(88, 75, 20);
+  // background: radial-gradient(
+  //   circle,
+  //   rgb(50 50 44) 0%,
+  //   rgba(34, 24, 22, 1) 76%
+  // );
+  // box-shadow: 2px 2px 4px gray;
+}
+.navbar__btns {
+  // margin-left: 11%;
+}
+
+a {
+  cursor: pointer;
+}
+
+.personalAccount {
+  // margin-right: 10%;
+  display: flex;
+}
+.personalAccount img {
+  width: 8%;
+  margin: 0 15px 0 20%;
+  cursor: pointer;
+}
+
+.message {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border-bottom: 25px;
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+}
+.message img {
+  width: 50px;
+}
+
+.circle {
+  width: 23px;
+  height: 23px;
+  background: rgb(251, 251, 251);
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  position: fixed;
+  margin-left: 30px;
+  position: absolute;
+}
+.basketCount {
+  position: absolute;
+  margin-left: 36px;
+  font-weight: bold;
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid gray;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  border-bottom: 1px solid gray;
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: rgba(50, 50, 44, 0.851);
+}
+
+.nav-item {
+  margin-left: 15px;
+}

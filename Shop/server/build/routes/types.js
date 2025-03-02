@@ -1,0 +1,34 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const Types_1 = __importDefault(require("@/controllers/Types"));
+const roleMiddleware_1 = __importDefault(require("@/middleware/roleMiddleware"));
+const authMiddleware_1 = __importDefault(require("@/middleware/authMiddleware"));
+const routes_1 = require("@/types/routes");
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const router = new express_1.Router();
+const types = new Types_1.default();
+router.post(`/${routes_1.ERoutesType.categories}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.createCategory.bind(types));
+router.post(`/${routes_1.ERoutesType.light}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.createTypeLight.bind(types));
+router.post(`/${routes_1.ERoutesType.colortemps}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.createTypeColorTemp.bind(types));
+router.post(`/${routes_1.ERoutesType.materials}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.createTypeMaterial.bind(types));
+router.post(`/${routes_1.ERoutesType.colorframes}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.createColorFrame.bind(types));
+router.put(`/${routes_1.ERoutesType.categories}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.updateTypeCategory.bind(types));
+router.put(`/${routes_1.ERoutesType.light}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.updateTypeLight.bind(types));
+router.put(`/${routes_1.ERoutesType.colortemps}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.updateTypeColorTemp.bind(types));
+router.put(`/${routes_1.ERoutesType.materials}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.updateTypeMaterial.bind(types));
+router.put(`/${routes_1.ERoutesType.colorframes}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.updateColorFrame.bind(types));
+router.delete(`/${routes_1.ERoutesType.categories}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.deleteTypeCategory.bind(types));
+router.delete(`/${routes_1.ERoutesType.light}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.deleteTypeLight.bind(types));
+router.delete(`/${routes_1.ERoutesType.colortemps}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.deleteTypeColorTemp.bind(types));
+router.delete(`/${routes_1.ERoutesType.materials}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.deleteTypeMaterial.bind(types));
+router.delete(`/${routes_1.ERoutesType.colorframes}`, authMiddleware_1.default, (0, roleMiddleware_1.default)("ADMIN"), types.deleteColorFrame.bind(types));
+router.get(`/${routes_1.ERoutesType.categories}`, types.getCategory.bind(types));
+router.get(`/${routes_1.ERoutesType.light}`, types.getTypeLight.bind(types));
+router.get(`/${routes_1.ERoutesType.colortemps}`, types.getTypeColorTemp.bind(types));
+router.get(`/${routes_1.ERoutesType.materials}`, types.getTypeMaterial.bind(types));
+router.get(`/${routes_1.ERoutesType.colorframes}`, types.getColorFrame.bind(types));
+exports.default = router;

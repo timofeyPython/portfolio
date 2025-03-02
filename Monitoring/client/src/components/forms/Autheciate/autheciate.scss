@@ -1,0 +1,28 @@
+.page {
+    height: 100vh;
+    width: 100%;
+    background: rgba(217, 217, 217, 0.52);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+}
+
+.content {
+    background: #ffff;
+    margin: auto;
+    padding: 5%;
+    border-radius: 3%;
+    border: 1px solid rgba(128, 128, 128, 0.643);
+}
+
+.block {
+    padding: 5%;
+
+    label {
+        display: block;
+ 
+    }
+}

@@ -1,0 +1,68 @@
+@media screen and (max-width: 1300px) {
+  .header {
+    margin: 0% 1% 0% 1% !important;
+    padding: 0.7% 5%;
+  }
+  .logo {
+    width: 320px;
+    height: 120px;
+  }
+  .message {
+    margin-right: 0% !important;
+  }
+}
+
+.header {
+  width: 99%;
+  padding: 0.3% 15%;
+  background-color: #ffff;
+}
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.message {
+  margin-right: 13%;
+}
+.info img {
+  width: 8%;
+}
+input {
+  margin: 2% 2% 2% 10%;
+  height: 25px;
+}
+
+select {
+  padding: 15px;
+}
+
+.call {
+  padding-top: 10px;
+  margin-right: 2%;
+}
+
+.brand {
+  position: relative;
+  padding-top: 30px;
+  width: 100%;
+
+  hr {
+    background-color: #fff;
+  }
+
+  .label {
+    position: absolute;
+    left: 40%;
+    top: 15px;
+    background: #fff;
+    font-size: 25px;
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+  }
+}
+
+.element {
+  margin-top: 2%;
+  width: 18%;
+}

@@ -1,0 +1,46 @@
+.filter {
+  // background-color: #f7f7f7;
+  // border-radius: 15px;
+  // border: 1px solid #b2b2b2;
+  height: 100%;
+  width: 100%;
+  max-width: 170px;
+  margin-right: 5%;
+  // box-shadow: 1px 3px 5px grey;
+
+  .title {
+    border-bottom: 1px solid #dadada;
+    padding: 10px;
+    background-color: #80808054;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .content.price {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 100%;
+      padding: 3px;
+      color: gray;
+      border: 1px solid gray;
+    }
+  }
+
+  .block {
+    margin-bottom: 15%;
+    background-color: #ffff;
+  }
+
+  .form-check-input {
+    width: 25px;
+    height: 25px;
+  }
+
+  .form-check-input:checked {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+  }
+}

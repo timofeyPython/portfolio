@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+
+.views {
+  min-height: 80vh;
+  background-color: #efeeec;
+  border: 1px solid rgb(128 128 128 / 12%);
+  padding: 2% 10%;
+}
+
+.container_plus {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #ecedee;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #303030;
+  border-radius: 0;
+}
+
+button {
+  border-radius: 0px !important;
+}

@@ -1,0 +1,53 @@
+.qs_contents {
+
+    section {
+        background-color: rgba(200, 200, 200, 0.058);
+        padding: 1%;
+        border-radius: 5px;
+        margin: 3%;
+        transition: 1s;
+        border: 1px solid rgb(128 128 128 / 18%)
+    }
+
+    section:hover {
+        background-color: rgb(200 200 200 / 20%)
+    }
+
+    .code {
+        border-radius: 20px;
+        background-color: rgb(230 164 164 / 27%);
+        border-radius: 10px;
+        font-family: courier, monospace;
+        color: var(--bs-code-color);
+    }
+
+    .answer {
+        margin: 15px 15px 15px 15px;
+    }
+    
+    textarea {
+        width: 50%;
+        height: 150px;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .active {
+        border: 1px solid green;
+ 
+    }
+
+    .solution {
+        background: rgb(194 194 194 / 27%);
+        padding: 25px;
+        border-radius: 25px;
+
+        label {
+            font-weight: bold;
+        }
+    }
+
+    button {
+        border-radius: 0;
+    }
+}

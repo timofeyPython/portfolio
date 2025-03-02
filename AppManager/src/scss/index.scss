@@ -1,0 +1,33 @@
+@import "bootstrap/scss/bootstrap";
+@import "questions/index";
+@import "myProject/index.scss";
+@import "home/index.scss";
+@import "notFound/index.scss";
+@import "about/index.scss";
+@import "excel/index.scss";
+ 
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0); 
+ 
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0); 
+    }
+}
+
+body {
+    background-color: white;
+}
+
+  
