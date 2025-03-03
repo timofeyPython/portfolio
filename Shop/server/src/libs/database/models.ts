@@ -163,11 +163,11 @@ TypeColorTemperature.hasOne(Product, {
 });
 Product.belongsTo(TypeColorTemperature);
 TypeMaterial.hasOne(Product, {
-  foreignKey: { name: "typeMaterialId", allowNull: false },
+  foreignKey: { name: "typeMaterialId", allowNull: true },
 });
 Product.belongsTo(TypeMaterial);
 ColorFrame.hasOne(Product, {
-  foreignKey: { name: "colorFrameId", allowNull: false },
+  foreignKey: { name: "colorFrameId", allowNull: true },
 });
 Product.belongsTo(ColorFrame);
 Product.hasMany(BasketProduct, {

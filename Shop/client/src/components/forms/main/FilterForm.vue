@@ -85,4 +85,4 @@ onUpdated(() => {
 });
 </script>
 
-<style scoped src="./style.scss"></style>
+<style src="./style.scss"></style>

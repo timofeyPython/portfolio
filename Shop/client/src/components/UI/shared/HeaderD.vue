@@ -2,9 +2,18 @@
   <div class="header">
     <div class="info">
       <div class="element">
-        <button type="button" class="btn btn-outline-dark">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          @click="showFeedBack = !showFeedBack"
+        >
           Позвонить мне
         </button>
+        <my-modal :show="showFeedBack" @show="showFeedBack = !showFeedBack">
+          <template v-slot:body
+            ><feedback-form @close="showFeedBack = !showFeedBack"
+          /></template>
+        </my-modal>
       </div>
 
       <div class="brand" @click="$router.push('/')">
@@ -34,10 +43,13 @@
 
 <script setup lang="ts">
 import SocialMedia from "@UI/templates/SocialMedia.vue";
+import FeedbackForm from "@/components/forms/main/FeedbackForm.vue";
+import { ref } from "vue";
 
 defineOptions({
   name: "header-d",
 });
+const showFeedBack = ref(false);
 </script>
 
 <style lang="scss" src="./styles/header.scss" scoped></style>

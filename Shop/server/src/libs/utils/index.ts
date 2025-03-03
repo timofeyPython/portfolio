@@ -42,6 +42,17 @@ export const generateJwt = ({ id, email, role }) => {
   });
 };
 
+export const checkJwt = (token: string) => {
+  if (!token.split(" ")?.[1]) return false;
+  try {
+    const bearer = token.split(" ")[1];
+    const check = jwt.verify(bearer, process.env.SECRET_KEY);
+    return check;
+  } catch {
+    return false;
+  }
+};
+
 export function checkParamBody(Dto: any) {
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     const originalMethod = descriptor.value;

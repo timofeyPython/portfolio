@@ -3,3 +3,6 @@ node_modules
 dist
 logs
 build
+build/*
+/Shop/server/public/
+/Shop/client/.env.development

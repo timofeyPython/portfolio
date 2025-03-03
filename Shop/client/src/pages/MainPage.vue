@@ -15,7 +15,7 @@
                 })
             "
           />
-          <div v-if="cards.length > 0">
+          <div v-if="Array.isArray(cards) && cards.length > 0">
             <div class="contents" style="min-height: 75vh">
               <div class="row row-cols-1 row-cols-md-4 g-4">
                 <transition-group name="list">

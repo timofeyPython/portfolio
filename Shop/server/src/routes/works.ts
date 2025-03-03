@@ -5,6 +5,7 @@ import { uploadFiles } from "@utils/index";
 import { models } from "@db/models";
 import { ERouters } from "@types_/routes";
 import { folderImagesWorks } from "@utils/constants";
+import roleMiddleware from "@/middleware/roleMiddleware";
 
 const router = new (Router as any)();
 const works = new Images({
@@ -17,6 +18,7 @@ const works = new Images({
 router.get("/", works.getAll.bind(works));
 router.post(
   "/",
+  roleMiddleware("ADMIN"),
   uploadFiles("images", "works", true),
   works.create.bind(works)
 );

@@ -1,12 +1,8 @@
 .filter {
-  // background-color: #f7f7f7;
-  // border-radius: 15px;
-  // border: 1px solid #b2b2b2;
   height: 100%;
   width: 100%;
   max-width: 170px;
   margin-right: 5%;
-  // box-shadow: 1px 3px 5px grey;
 
   .title {
     border-bottom: 1px solid #dadada;
@@ -15,7 +11,7 @@
   }
 
   .content {
-    padding: 10px;
+    padding: 8px;
   }
 
   .content.price {
@@ -35,12 +31,16 @@
   }
 
   .form-check-input {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
   }
 
   .form-check-input:checked {
     background-color: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
+  }
+
+  .form-check-input:focus {
+    box-shadow: none;
   }
 }

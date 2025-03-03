@@ -5,11 +5,24 @@ export class DtoProductCreate {
   name: TDtoValue;
   price: TDtoValue;
   description: TDtoValue;
+  typeCategoryId: TDtoValue;
+  typeLightingId: TDtoValue;
+  typeColorTemperatureId: TDtoValue;
 
-  constructor({ name, price, description }) {
+  constructor({
+    name,
+    price,
+    description,
+    typeCategoryId,
+    typeLightingId,
+    typeColorTemperatureId,
+  }) {
     this.name = checkValue(name, "string");
     this.price = checkValue(price, "number");
     this.description = checkValue(description, "string");
+    this.typeCategoryId = checkValue(typeCategoryId, "string");
+    this.typeLightingId = checkValue(typeLightingId, "string");
+    this.typeColorTemperatureId = checkValue(typeColorTemperatureId, "string");
   }
 }
 

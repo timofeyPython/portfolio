@@ -21,7 +21,7 @@ export class App extends Service {
 
   async start() {
     this.app.use(express.json());
-    this.app.use(express.static(folderPublicImages));
+    this.app.use("/api/images/", express.static(folderPublicImages));
     this.app.use(express.urlencoded({ extended: true }));
 
     if (Array.isArray(this.middleware) && this.middleware.length > 0)
@@ -31,7 +31,7 @@ export class App extends Service {
       });
     try {
       await this.connectDatabase();
-      this.getClientContent();
+      // this.getClientContent();
       this.app.listen(this.options.port, () =>
         this.log(`Сервер работает на сервере ${this.options.port}`)
       );
