@@ -3,7 +3,6 @@ import { IQSHeaderOptions } from "@/types/questionnaire/interfaces";
 import * as actions from "@/redux/questionnaire/action";
 import { Dom } from "@core/dom";
 import question from "./question";
-import { API } from "@/core/utils/constants";
 
 export class Questions extends QuestionsComponent {
   static className = "qs_contents";
@@ -127,7 +126,7 @@ export class Questions extends QuestionsComponent {
   }
 
   getData() {
-    fetch(`${API}/${this.root}`)
+    fetch(`${this.api}${this.root}`)
       .then((response) => response.json())
       .then((json) => {
         this.questions = json.questions;

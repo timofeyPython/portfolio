@@ -173,7 +173,7 @@ export class Title extends QuestionsComponent {
       headers: myHeaders,
     };
 
-    fetch("http://localhost:3003/api/questionnaire/", requestOptions)
+    fetch(this.api, requestOptions)
       .then((response) => response.json())
       .then((json) => {
         this.$root.$el.querySelector("#counter").innerHTML = `

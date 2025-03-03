@@ -31,8 +31,9 @@ export class Home {
               <li>NestJS</li> 
               <li>React</li>
               <li>VueJS</li>
-              <li>Webix</li>
+              <li>Webix</li> 
             </ul>
+            <p class="lead">Имею опыт работы с Linux-системами, владею навыками развертывания приложений на сервере с помощью Docker и Docker Compose, настройки nginx, а также умею работать с системами контроля версий Git и GitLab.</p>
             <h3 class="display-6">
               За период работ с 2021 по 2023 были разработаны приложения для энергопредприятий, такие как: 
             </h3>

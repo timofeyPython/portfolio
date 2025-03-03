@@ -67,4 +67,9 @@ body.main_modal {
 }
  
 
- 
+@media only screen and (max-width: 767px) {
+    .main_modalContent {
+        margin: 0;
+        max-height: 75vh;
+    }
+ }

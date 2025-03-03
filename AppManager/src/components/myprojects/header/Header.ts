@@ -9,6 +9,7 @@ import iconVite from "@assets/icon/vite.png";
 import iconNodeJS from "@assets/icon/nodejs.png";
 import iconNestJS from "@assets/icon/nestjs.png";
 import iconBoostraps from "@assets/icon/boostraps.png";
+import iconDocker from "@assets/icon/docker.png";
 import { Dom } from "@core/dom";
 
 export class Header {
@@ -30,6 +31,7 @@ export class Header {
       iconSCSS,
       iconBoostraps,
       iconGithub,
+      iconDocker,
     ];
   }
 

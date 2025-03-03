@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { API } from "@/core/utils/constants";
 import {
   IEmitter,
   IInitalState,
@@ -15,6 +16,7 @@ export class QuestionsComponent extends DomListener {
   subscribe: Array<string>;
   unsubscribes: Array<any>;
   store: Store;
+  api: string;
 
   constructor($root: Dom, options: IQSHeaderOptions) {
     super($root, options.listeners);
@@ -23,6 +25,7 @@ export class QuestionsComponent extends DomListener {
     this.subscribe = options.subscribe || [];
     this.unsubscribes = [];
     this.store = options.store;
+    this.api = API;
   }
 
   toHtml() {

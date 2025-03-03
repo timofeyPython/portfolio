@@ -11,7 +11,7 @@ async function bootstrap() {
   let app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const port = configService.get<number>("PORT");
-  app.setGlobalPrefix("api");
+  app.setGlobalPrefix("apiv2");
   app.useGlobalPipes(new ValidationPipe());
   app.use(
     cors({

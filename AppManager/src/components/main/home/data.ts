@@ -56,7 +56,7 @@ export const listsProjects2024 = [
     stack: {
       client: ["Vue.js3", "Pinia", "Typescript"],
       backend: ["NodeJS", "Typescript", "Redis", "Python3", "PostgreSQL"],
-      server: "Ubuntu 22.04 LTS",
+      server: "Ubuntu 22.04 LTS + Docker",
     },
   },
   {
@@ -80,7 +80,7 @@ export const listsProjects2024 = [
     stack: {
       client: ["React + Redux", "Typescript"],
       backend: ["NestJS", "Typescript", "PostgreSQL"],
-      server: "Ubuntu 22.04 LTS",
+      server: "Ubuntu 22.04 LTS + Docker",
     },
   },
 ];

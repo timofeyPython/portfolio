@@ -15,26 +15,28 @@ import { EPath } from "@/types/enum";
 export const listsJob = [
   {
     href: EPath.questions,
-    title: "Тестирование по JS",
+    title: "Тестирование",
     description: `
         В данном тесте представлены вопросы по ЯП JavaScript, в создании теста использовались такие технологии, 
         как Webpack, Typescript, SCSS. Данный модуль был написан без использования фреймворков и сторонних библиотек, главная задача была создать свой фреймворк, чтобы понять 
         принципы работы современных технологий.
       `,
     linkDescription: "Ниже представлен код приложения из Github",
-    linkGit: "",
+    linkGit:
+      "https://github.com/timofeyPython/portfolio/tree/main/AppManager/src/components/questionnaire",
     imgs: [iconTS, iconSCSS, iconWP],
   },
   {
     href: EPath.excel,
     title: "Online Excel",
     description: `
-      Данное приложение позволяет создавать электронные таблицы, записывать значения в ячейки, редактировать, присваивать стили, 
-      вычеслять значение по формулам, кроме того приложение запоминает своё состояние и хранит его в localStorage, 
+      Данное приложение позволяет создавать электронные таблицы, записывать значения в ячейки, редактировать, присваивать стили,    
+      вычеслять , кроме   того приложение запоминает своё состояние и хранит его в localStorage, 
       что позволяет вернуться к редактирование таблицы после закрытия вкладки.
       `,
     linkDescription: "Ниже представлен код приложения из Github",
-    linkGit: "",
+    linkGit:
+      "https://github.com/timofeyPython/portfolio/tree/main/AppManager/src/components/excel",
     imgs: [iconTS, iconSCSS, iconWP],
   },
   {
@@ -45,25 +47,25 @@ export const listsJob = [
         сайте имееться возможность оформить заказ или заказать обратный звонок консультанта, который поможет с вобором товара.
       `,
     linkDescription: "Ниже представлен код приложения из Github",
-    linkGit: "",
+    linkGit: "https://github.com/timofeyPython/portfolio/tree/main/Shop",
     imgs: [iconTS, iconVue, iconPinia, iconNodeJS, iconVite, iconBoostraps],
   },
   {
     href: EPath.monitoring,
-    title: "Мониторинг IT отдела",
+    title: "Мониторинг отдела",
     linkDescription: "Ниже представлен код приложения из Github",
     description:
-      "Данный функционал позволяет создавать события, выбирая нужную дату и указав свою почту, куда придёт сообщение о напоминани ",
-    linkGit: "",
+      "Данное ПО создано для управления задачами внутри IT отделов, которое помогает планировать выполнение задач, назначать и отслеживать их, выгружать в форме отчёта.",
+    linkGit: "https://github.com/timofeyPython/portfolio/tree/main/Monitoring",
     imgs: [iconTS, iconRedux, iconReact, iconNestJS, iconBoostraps],
   },
   {
     href: EPath.pingpong,
     title: "Игра в пинг-понг",
     description: `
-        Данная игра написана на чистом Typescript с использованием canvas, управление реализовано стрелоками вверх и вниз, удачной игры !`,
+        Данная игра написана на чистом JavaScript с использованием canvas, управление реализовано стрелоками вверх и вниз, удачной игры !`,
     linkDescription: "Ниже представлен код приложения из Github",
-    linkGit: "",
+    linkGit: "https://github.com/timofeyPython/portfolio/tree/main/PingPong",
     imgs: [iconJS],
   },
 ];

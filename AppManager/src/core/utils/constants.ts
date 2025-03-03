@@ -6,4 +6,4 @@ export const defaultStyles = {
 };
 export const defaultTitle = "Новая таблица";
 export const openedDate = new Date().toJSON();
-export const API = "https://timofeyweb.ru/api/questionnaire/";
+export const API = "/apiv2/questionnaire/";
