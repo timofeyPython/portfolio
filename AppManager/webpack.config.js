@@ -11,7 +11,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   const isDev = !isProd;
-
   const mode = argv.mode;
   const filename = (ext) =>
     isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`;
@@ -40,7 +39,7 @@ module.exports = (env, argv) => {
     },
     output: {
       path: path.resolve(__dirname, "./dist"),
-      filename: "[name].bundle.js",
+      filename: "[name].[chunkhash].js",
       publicPath: "/",
     },
     resolve: {

@@ -6,3 +6,5 @@ build
 build/*
 /Shop/server/public/
 /Shop/client/.env.development
+.env.development
+.env.production
