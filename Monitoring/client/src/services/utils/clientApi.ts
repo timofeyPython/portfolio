@@ -1,16 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { API } from "./constants";
 import { toast } from "react-toastify";
 import cookie from "cookiejs";
+import { IClientApiOption } from "@/types/general";
 
-export function clientAPI(options: {
-  method: "POST" | "GET" | "PUT" | "DELETE";
-  path: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  parameters?: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: any;
-}) {
+function handleError(e: unknown) {
+  if (
+    typeof e === "object" &&
+    e !== null &&
+    "response" in e &&
+    typeof (e as any).response === "object" &&
+    (e as any).response !== null &&
+    "data" in (e as any).response &&
+    typeof (e as any).response.data === "object" &&
+    (e as any).response.data !== null &&
+    "message" in (e as any).response.data
+  ) {
+    // Безопасно работаем с сообщениями
+    toast.error(
+      Array.isArray((e as any).response.data.message)
+        ? (e as any).response.data.message.join(",")
+        : (e as any).response.data.message,
+    );
+  } else {
+    console.error("Неожиданная ошибка:", e); // Логирование или обработка другой ошибки
+  }
+}
+
+export function clientAPI<T>(
+  options: IClientApiOption<object>,
+): () => Promise<T> {
   switch (options.method) {
     case "GET":
       return async () => {
@@ -19,7 +39,7 @@ export function clientAPI(options: {
 
           if (options?.parameters)
             for (const [key, value] of Object.entries(options?.parameters))
-              url += `${key}=${value}&`;
+              if (value) url += `${key}=${value}&`;
 
           const response = await axios.get(url, {
             headers: {
@@ -48,13 +68,8 @@ export function clientAPI(options: {
 
           toast.success(response.data?.message);
           return response.data;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (e: any) {
-          toast.error(
-            Array.isArray(e.response.data?.message)
-              ? e.response.data?.message.join(",")
-              : e.response.data?.message,
-          );
+        } catch (e) {
+          handleError(e);
           return false;
         }
       };
@@ -72,20 +87,18 @@ export function clientAPI(options: {
 
           toast.info(response.data?.message);
           return response.data;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (e: any) {
-          toast.error(
-            Array.isArray(e.response.data?.message)
-              ? e.response.data?.message.join(",")
-              : e.response.data?.message,
-          );
+        } catch (e) {
+          handleError(e);
           return false;
         }
       };
     case "DELETE":
       return async () => {
         try {
-          const url = `${API}/${options.path}?id=${options.parameters}`;
+          let url = `${API}/${options.path}?`;
+          if (options?.parameters)
+            for (const [key, value] of Object.entries(options?.parameters))
+              url += `${key}=${value}&`;
           const response = await axios.delete(url, {
             headers: {
               Authorization: `Bearer ${cookie.get("token")}`,
@@ -94,17 +107,10 @@ export function clientAPI(options: {
           if (!response) return false;
           toast.info(response.data?.message);
           return response.data;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (e: any) {
-          toast.error(
-            Array.isArray(e.response.data?.message)
-              ? e.response.data?.message.join(",")
-              : e.response.data?.message,
-          );
+        } catch (e) {
+          handleError(e);
           return false;
         }
       };
-    default:
-      return () => "";
   }
 }

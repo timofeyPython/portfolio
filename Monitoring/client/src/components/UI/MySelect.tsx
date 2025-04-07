@@ -1,5 +1,7 @@
+import { IOptionSelect } from "@/types/general";
+
 export function MySelect(select: {
-  options: Array<{ value: string | number; description: string }>;
+  options: Array<IOptionSelect>;
   selected?: string | number | null;
   label: string;
   id: string;
@@ -12,12 +14,16 @@ export function MySelect(select: {
         id={select?.id}
         aria-label="Floating label select example"
         onChange={select.onChange}
-        value={select?.selected ? select?.selected : ""}
+        // defaultValue={select?.selected ? select?.selected : "DEFAULT"}
+        value={select?.selected ? select?.selected : "DEFAULT"}
       >
+        <option value="DEFAULT" disabled>
+          Выберите из списка
+        </option>
         {select.options.map((el) => {
           return (
             <option value={el.value} key={el.value}>
-              {el.description}
+              {el.label}
             </option>
           );
         })}

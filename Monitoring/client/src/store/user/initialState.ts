@@ -1,26 +1,17 @@
+import { IStoreUser } from "@/types/store";
 import cookie from "cookiejs";
 
-const initialState = (): {
-  isAuth: boolean;
-  info: {
-    roles: Array<string>;
-    login: string;
-    departament: string;
-    position: string;
-    name: string;
-    id: string;
-    grId: string;
-  };
-} => ({
+const initialState = (): IStoreUser => ({
   isAuth: cookie.get("token") ? true : false,
   info: {
-    roles: [],
     login: "",
-    departament: "",
     position: "",
     name: "",
     id: "",
-    grId: "",
+    rights: {
+      user: { role: "" },
+      group: [],
+    },
   },
 });
 

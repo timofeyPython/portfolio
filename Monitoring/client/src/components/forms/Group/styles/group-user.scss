@@ -1,0 +1,12 @@
+@import "style";
+
+.group-user {
+    @include template-groups;
+    transition: 0.5s;
+    border: 1px solid white;
+    padding: 1.2% 5%;
+  }
+  
+  .group-user:hover {
+    border: 1.5px solid #00000038;
+  }

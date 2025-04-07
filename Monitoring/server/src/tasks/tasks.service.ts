@@ -1,29 +1,31 @@
-import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/sequelize";
-import { Task } from "./tasks.model";
-import { Groups } from "src/groups/groups.model";
+import { forwardRef, Inject, Injectable } from "@nestjs/common";
+import { Tasks } from "./tasks.model";
+import { Groups } from "@src/groups/groups.model";
 import { Op } from "sequelize";
-import { TStage, TTemplateUser } from "./tasks.type";
-import { TaskCategory } from "src/taskcategory/taskcategory.model";
-
+import { ITasksFindAllParams, TStage, TTemplateUser } from "./types/tasks.type";
+import { TaskCategory } from "@src/task-category/task-category.model";
+import { EDBNameTable } from "@lib/types/enum";
+import { updateTaskDto } from "./types/tasks.dto";
+import { UserService } from "@src/user/user.service";
+import { findStatus, getHtmlMessage } from "@src/lib/utils/halperFn";
+import { MailerService } from "@src/mailer/mailer.service";
+import { GroupsService } from "@src/groups/groups.service";
+ 
 @Injectable()
 export class TasksService {
   constructor(
-    @InjectModel(Task)
-    private taskModel: typeof Task
+    @Inject(EDBNameTable.TASKS_TABLE)
+    private readonly taskModel: typeof Tasks,
+    private readonly mailService: MailerService,
+    private readonly userService: UserService,
+    @Inject(forwardRef(() => GroupsService))
+    private readonly groupService: GroupsService,
   ) {}
 
-  async findAll(params: {
-    grId: string;
-    date?: {
-      start: Date;
-      end: Date;
-    };
-    end?: boolean;
-    assignedId?: string;
-  }) {
-    const status = params.end ? 3 : { [Op.in]: [0, 1, 2] };
+  async findAll(params: ITasksFindAllParams) {
+    const status = !params.active ? 3 : { [Op.in]: [0, 1, 2] };
     const where: any = { "stage.current.status": status };
+    const whereGrId = params?.grId ? { id: params?.grId } : {};
 
     if (params?.date?.start && params?.date?.end)
       where.startTask = {
@@ -39,7 +41,7 @@ export class TasksService {
       include: [
         {
           model: Groups,
-          where: { id: params?.grId },
+          where: whereGrId,
         },
         {
           model: TaskCategory,
@@ -54,7 +56,7 @@ export class TasksService {
     return tasks;
   }
 
-  async findOne(id: string): Promise<Task> {
+  async findOne(id: string): Promise<Tasks> {
     const task = await this.taskModel.findOne({
       where: { id },
       include: [
@@ -90,6 +92,23 @@ export class TasksService {
       include: [{ model: TaskCategory }],
     });
 
+    // Задание назначено другим пользователем 
+    if (obj.createdUser.id !== obj.assigned.id) {
+      const user = await this.userService.findOne(obj.assigned.id);
+      const group = await this.groupService.findOne(entry.grId);
+      this.mailService.sendMail({
+        to: user.info?.mail,
+        html: getHtmlMessage({
+          title: `Вам назначено задание ${obj.name}`,
+          userName: obj.createdUser.name,
+          userName1: entry.assigned.name,
+          description: obj.description,
+          date1: obj.startTask,
+          date2: obj.endTask,
+          groupName: group.entry.nameFull,
+        }),
+      });
+    }
     return findEntry;
   }
 
@@ -97,11 +116,12 @@ export class TasksService {
     id,
     description,
     stage,
-  }: {
-    id: string;
-    description: string;
-    stage: TStage;
-  }) {
+    name,
+    startTask,
+    endTask,
+    taskCategoryId,
+    grId,
+  }: updateTaskDto) {
     const task = await this.taskModel.findOne({ where: { id } });
     const history = task.stage?.history ? task.stage.history : [];
     history.push({
@@ -112,22 +132,69 @@ export class TasksService {
 
     await this.taskModel.update(
       {
+        name,
+        startTask,
+        endTask,
+        taskCategoryId,
         description,
         stage: { ...stage, history },
+        grId,
       },
       { where: { id } }
     );
 
-    const entry = this.taskModel.findOne({
+    const entry = await this.taskModel.findOne({
       where: { id },
       include: [{ model: TaskCategory }],
     });
+
+    if (entry.createdUser.id !== entry.assigned.id) {
+      const user = await this.userService.findOne(entry.createdUser.id);
+      const group = await this.groupService.findOne(entry.grId);
+      const templateHtmlMessage = getHtmlMessage({
+        title: `Задание ${entry.name} обновлено, статус: ${findStatus(stage.current.status)}`,
+        userName: entry.createdUser.name,
+        userName1: entry.assigned.name,
+        description: entry.description,
+        date1: entry.startTask,
+        date2: entry.endTask,
+        groupName: group.entry.nameFull,
+      });
+      
+      if (stage.current.status == "3")
+        this.mailService.sendMail({
+          to: user.info?.mail,
+          html: templateHtmlMessage,
+        });
+      else
+        this.mailService.sendMail({
+          to: user.info?.mail,
+          html: templateHtmlMessage,
+        });
+    }
+
     return entry;
   }
 
   async delete(id: string) {
     const entry = await this.taskModel.findOne({ where: { id } });
     await this.taskModel.destroy({ where: { id } });
+    if (entry.createdUser.id !== entry.assigned.id) {
+      const user = await this.userService.findOne(entry.createdUser.id);
+      const group = await this.groupService.findOne(entry.grId);
+      this.mailService.sendMail({
+        to: user.info?.mail,
+        html: getHtmlMessage({
+          title: `Задание ${entry.name} удалено, статус: ${findStatus(entry.stage.current.status)}`,
+          userName: entry.createdUser.name,
+          userName1: entry.assigned.name,
+          description: entry.description,
+          date1: entry.startTask,
+          date2: entry.endTask,
+          groupName: group.entry.nameFull,
+        }),
+      });
+    }
     return entry.number;
   }
 }

@@ -1,3 +1,5 @@
+import { EUserRights } from "@/types/general";
+
 export const API = import.meta.env.VITE_API;
 export const statuses = [
   {
@@ -38,3 +40,9 @@ export const transitionConfig = () => {
     } as { [key: string]: React.CSSProperties },
   };
 };
+
+export const DEFAULT_RIGHTS = [
+  EUserRights.EDITOR,
+  EUserRights.ADMIN,
+  EUserRights.USER,
+];

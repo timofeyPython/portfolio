@@ -1,0 +1,15 @@
+ .selectTask {
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.form-floating {
+  label {
+    z-index: 0 !important;
+  }
+}

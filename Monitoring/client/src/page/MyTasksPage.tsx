@@ -1,41 +1,33 @@
-import UI from "@/components/UI/index";
-import { useState } from "react";
-import { useAppSelector } from "@/store/hooks";
-import { selectUser } from "@/store/selectors";
-import { ListsTasks } from "@/components/forms/MyTasks/ListsTask";
-import { CreateTask } from "@/components/forms/MyTasks/CreateTask";
+import { useAppSelector } from "@store/hooks";
+import { selectUser } from "@store/selectors";
+import { Task } from "@forms/Task/Task";
+import { useParams } from "react-router-dom";
+import { ERouteParamId } from "@/types/routePath.enum";
+import { useEffect, useState } from "react";
+import { IGroupList } from "@/components/forms/Group/types/types";
+import { getGroup } from "@services/api/apiGroups";
 
 export function MyTasksPage() {
-  const [show, setShow] = useState(false);
   const user = useAppSelector(selectUser);
-
-  return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <h1 className="display-6">Мои задачи</h1>
-        <button
-          type="button"
-          className="btn btn-outline-dark"
-          onClick={() => setShow(!show)}
-        >
-          Создать задачу
-        </button>
-      </div>
-
-      <ListsTasks grId={user.info.grId} userId={user.info.id} />
-      <UI.MyModal show={show}>
-        <CreateTask
-          setShow={setShow}
-          grId={user.info.grId}
-          userId={user.info.id}
-          userName={user.info.name}
-        />
-      </UI.MyModal>
-    </div>
+  const params = useParams();
+  const [nameGroup, setNameGroup] = useState<null | IGroupList>(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getGroup(`${params[ERouteParamId.GROUP_ID]}`);
+      setNameGroup(data.entry);
+    };
+    fetchData();
+  }, [params]);
+  return params[ERouteParamId.GROUP_ID] ? (
+    <Task
+      grId={params[ERouteParamId.GROUP_ID]}
+      id={user.info.id}
+      name={user.info.name}
+      title={`Мои работы по группе ${nameGroup?.nameFull}`}
+      createdUserId={user.info.id}
+      createdUserName={user.info.name}
+    />
+  ) : (
+    <></>
   );
 }

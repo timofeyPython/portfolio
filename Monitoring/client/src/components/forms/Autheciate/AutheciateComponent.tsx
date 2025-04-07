@@ -2,10 +2,11 @@ import "./autheciate.scss";
 import { useCallback, useState } from "react";
 import { useLocation, useNavigate, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { logIn } from "@services/utils/api";
+import { logIn } from "@services/api/apiAuth";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { selectUser } from "@store/selectors";
-import { updateAuth } from "@/store/user/actions";
+import { updateAuth } from "@store/user/actions";
+import { ERoutePath } from "@/types/routePath.enum";
 
 export function Autheciate() {
   const [login, setLogin] = useState("");
@@ -15,13 +16,14 @@ export function Autheciate() {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleSubmit } = useForm();
-  const from = location.state?.from?.pathname || "/main";
+  const from = location.state?.from?.pathname || `/${ERoutePath.MAIN}`;
 
   const handleFormChange = useCallback<
     React.ChangeEventHandler<HTMLInputElement>
   >(
     (event) => {
-      if (event.target.id === "login") setLogin(event.currentTarget.value);
+      if (event.target.id === ERoutePath.LOGIN)
+        setLogin(event.currentTarget.value);
       else setPassword(event.currentTarget.value);
     },
     [setLogin, setPassword],
@@ -37,7 +39,7 @@ export function Autheciate() {
   };
 
   return user.isAuth ? (
-    <Navigate to="/main" replace />
+    <Navigate to={`/${ERoutePath.MAIN}`} replace />
   ) : (
     <div className="page">
       <div className="content">

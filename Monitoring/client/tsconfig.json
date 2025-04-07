@@ -27,6 +27,8 @@
       "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@routes/*": ["src/routes/*"],
+      "@page/*": ["src/page/*"],
+      "@forms/*": ["src/components/forms/*"]
     }
   },
   "include": ["src"],

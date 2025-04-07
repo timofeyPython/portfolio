@@ -6,7 +6,7 @@ import {
 } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { Request } from "express";
-import { JWT_TOKEN } from "../lib/config/ldap/config";
+import { JWT_TOKEN } from "@lib/config/ldap/config";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -24,8 +24,7 @@ export class AuthGuard implements CanActivate {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: JWT_TOKEN,
       });
-
-      request["user"] = payload;
+      request["user"] = {...payload};
     } catch {
       throw new UnauthorizedException("Не авторизован, внутреняя ошибка");
     }

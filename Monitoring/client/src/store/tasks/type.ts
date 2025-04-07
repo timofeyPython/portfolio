@@ -1,4 +1,4 @@
-export interface ITasks {
+export interface ITask {
   id: string;
   name: string;
   description: string;
@@ -15,7 +15,10 @@ export interface ITasks {
   grId: string;
   createdAt: string;
   updatedAt: string;
-  groups: Array<string>;
+  groups: {
+    id: string;
+    name: string;
+  };
   taskCategory: {
     id: string;
     name: string;
@@ -28,17 +31,20 @@ export interface ITasksStageHistory {
   description?: string;
 }
 
+interface ITaskStage {
+  current: ITasksStageHistory;
+  deadline: Date;
+}
+
 export interface ITaskUpdate {
   id: string;
   description: string;
-  stage: {
-    current: {
-      date: Date;
-      status: string;
-      description: string;
-    };
-    deadline?: Date;
-  };
+  stage: ITaskStage;
+  name: string;
+  taskCategoryId: string;
+  startTask: Date;
+  endTask: Date;
+  grId: string;
 }
 
 interface ITemplateUser {
@@ -51,10 +57,7 @@ export interface ICreateTask {
   description: string;
   createdUser: ITemplateUser;
   assigned: ITemplateUser;
-  stage: {
-    current: ITasksStageHistory;
-    deadline: Date;
-  };
+  stage: ITaskStage;
   startTask: Date;
   endTask: Date;
   grId: string;

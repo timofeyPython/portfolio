@@ -10,12 +10,12 @@ import {
   AllowNull,
   BelongsTo,
 } from "sequelize-typescript";
-import { Groups } from "src/groups/groups.model";
-import { TStage, TTemplateUser } from "./tasks.type";
-import { TaskCategory } from "src/taskcategory/taskcategory.model";
+import { Groups } from "@src/groups/groups.model";
+import { TStage, TTemplateUser } from "./types/tasks.type";
+import { TaskCategory } from "@src/task-category/task-category.model";
 
 @Table
-export class Task extends Model<Task> {
+export class Tasks extends Model<Tasks> {
   @PrimaryKey
   @Default(Sequelize.literal("uuid_generate_v4()"))
   @Column(DataType.UUID)
@@ -49,7 +49,9 @@ export class Task extends Model<Task> {
   @ForeignKey(() => Groups)
   @Column(DataType.UUID)
   grId: string;
-  @BelongsTo(() => Groups, "grId")
+  @BelongsTo(() => Groups, {
+    onDelete: "CASCADE"
+  })
   groups: Groups;
 
   @AllowNull(false)

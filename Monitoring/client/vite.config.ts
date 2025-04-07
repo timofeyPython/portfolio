@@ -12,6 +12,7 @@ export default defineConfig({
     }),
     eslint(),
   ],
+  base: "monitoring",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -20,8 +21,9 @@ export default defineConfig({
       "@services": path.resolve(__dirname, "./src/services"),
       "@store": path.resolve(__dirname, "./src/store"),
       "@routes": path.resolve(__dirname, "./src/routes"),
+      "@page": path.resolve(__dirname, "./src/page"),
+      "@forms": path.resolve(__dirname, "./src/components/forms"),
     },
     mainFields: ["browser"],
   },
-  base: "monitoring",
 });

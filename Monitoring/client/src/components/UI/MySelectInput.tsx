@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { IOptionSelect } from "@/types/general";
 import Select from "react-select";
 
 export function mySelectInput({
@@ -7,10 +8,7 @@ export function mySelectInput({
   onChange,
   placeholder,
 }: {
-  options: Array<{
-    value: string;
-    label: string;
-  }>;
+  options: Array<IOptionSelect>;
   defaultValue?: any;
   onChange: (val: any) => void;
   placeholder?: string;
@@ -19,6 +17,7 @@ export function mySelectInput({
     <Select
       options={options}
       defaultValue={defaultValue}
+      value={defaultValue}
       onChange={onChange}
       placeholder={placeholder}
     />

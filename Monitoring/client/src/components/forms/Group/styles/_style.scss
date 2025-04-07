@@ -1,0 +1,7 @@
+@mixin template-groups {
+  background: #ffff;
+  border-radius: $templateBorderRadius;
+  margin: 3% 0%;
+}
+
+$templateBorderRadius: 7px;

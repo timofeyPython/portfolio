@@ -1,4 +1,4 @@
-import { Autheciate } from "@components/forms/Autheciate/AutheciateComponent";
+import { Autheciate } from "@forms/Autheciate/AutheciateComponent";
 
 export function AuthPage() {
   return <Autheciate />;

@@ -1,0 +1,16 @@
+@import "style";
+
+.admin-user-list {
+  background-color: $block-background;
+  padding: 1rem;
+  margin: 2% 0%;
+  border-radius: 15px;
+  border: 1px solid $block-border;
+  transition: 1.0s;
+  cursor: pointer;
+}
+
+.admin-user-list:hover {
+  border: 1px solid $block-border;
+  background-color: $block-border;
+}

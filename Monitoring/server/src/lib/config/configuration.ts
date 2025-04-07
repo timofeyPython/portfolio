@@ -1,4 +1,4 @@
 export const dotEnvPath =
   process.env.NODE_ENV === "development"
-    ? ".env"
-    : ".env";
+    ? ".env.development"
+    : ".env.production";

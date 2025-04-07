@@ -1,15 +1,17 @@
 import { Module } from "@nestjs/common";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { UsersModule } from "src/users/users.module";
-import { ConformitiesModule } from "src/conformities/conformities.module";
 import { JwtModule } from "@nestjs/jwt";
-import { JWT_TOKEN } from "src/lib/config/ldap/config";
+import { JWT_TOKEN } from "@lib/config/ldap/config";
+import { UserService } from "@src/user/user.service";
+import { userProviders } from "@src/user/user.providers";
+import { groupConfProviders } from "@src/group-conf/group-conf.provider";
+import { GroupConfService } from "@src/group-conf/group-conf.service";
+import { userConfProviders } from "@src/user-conf/user-conf.provider";
+import { UserConfService } from "@src/user-conf/user-conf.service";
 
 @Module({
   imports: [
-    UsersModule,
-    ConformitiesModule,
     JwtModule.register({
       global: true,
       secret: JWT_TOKEN,
@@ -17,6 +19,14 @@ import { JWT_TOKEN } from "src/lib/config/ldap/config";
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    UserService,
+    GroupConfService,
+    UserConfService,
+    ...userProviders,
+    ...groupConfProviders,
+    ...userConfProviders,
+  ],
 })
 export class AuthModule {}

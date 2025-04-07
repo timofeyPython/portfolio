@@ -6,12 +6,10 @@ import {
   Body,
   UseGuards,
   Req,
-  Res,
   Get,
-  UnauthorizedException,
 } from "@nestjs/common";
 import { AuthService } from "./auth.service";
-import { CreateUserDto } from "./auth.dto";
+import { CreateUserDto } from "./types/auth.dto";
 import { Request } from "express";
 import { AuthGuard } from "./auth.guard";
 
@@ -38,9 +36,9 @@ export class AuthController {
   @Get("check")
   async check(@Req() request: Request) {
     const refreshToken = await this.authService.check(request["user"]?.login);
-
     return {
       refreshToken: refreshToken.access_token,
+      info: refreshToken.payload
     };
   }
 }

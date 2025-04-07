@@ -6,11 +6,11 @@ import {
   PrimaryKey,
   DataType,
   Default,
+  AllowNull,
   ForeignKey,
   BelongsTo,
-  AllowNull,
 } from "sequelize-typescript";
-import { Departaments } from "src/departaments/departaments.model";
+import { Users } from "@src/user/user.model";
 
 @Table
 export class Groups extends Model<Groups> {
@@ -28,10 +28,12 @@ export class Groups extends Model<Groups> {
   nameFull: string;
 
   @AllowNull(false)
-  @ForeignKey(() => Departaments)
+  @ForeignKey(() => Users)
   @Column(DataType.UUID)
-  dpId: string;
+  createdUserId: string;
+  @BelongsTo(() => Users, "createdUserId")
+  user: Users;
 
-  @BelongsTo(() => Departaments, "dpId")
-  departaments: Departaments;
+  @Column(DataType.TEXT)
+  description: string;
 }

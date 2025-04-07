@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { QuestionnaireService } from "./questionnaire.service";
-import { PostBodyDto } from "./questionnaire.dto";
+import { PostBodyDto } from "./types/questionnaire.dto";
 
 @Controller("questionnaire")
 export class QuestionnaireController {

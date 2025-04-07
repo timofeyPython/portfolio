@@ -1,0 +1,66 @@
+@import "style";
+
+.task {
+ 
+  border-radius: 5px;
+  margin-top: 35px;
+  margin: 3% auto 1% auto;
+
+  .toomBler {
+    img {
+      width: 50px;
+    }
+    cursor: pointer;
+  }
+}
+
+.task.active {
+  h1 {
+    color: #f05a23;
+  }
+}
+
+.task.inactive {
+  // background-color: #ffffff;
+  color: #475466;
+}
+
+.task-history {
+  padding: 10px;
+  border: 2px solid #00000047;
+  border-radius: 10px;
+}
+
+
+.col {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: auto;
+  text-align: start;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+  border: 1px solid #8080802b;
+  font-size: 16px;
+  border: 1px solid #FFFF;
+}
+
+.col:hover {
+  color: #475466;
+  transition: 0.7s;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.487);
+}
+
+
+.description {
+  height: 10rem;
+  min-height:  5rem;
+  overflow: auto;
+  border: 1px solid rgb(128 128 128 / 16%);
+  padding: 0.3rem;
+}

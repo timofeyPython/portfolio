@@ -1,13 +1,22 @@
 import { Module } from "@nestjs/common";
 import { GroupsService } from "./groups.service";
-import { SequelizeModule } from "@nestjs/sequelize";
-import { Groups } from "./groups.model";
 import { GroupsController } from "./groups.controller";
-import { TasksModule } from "src/tasks/tasks.module";
+import { groupsProvider } from "./groups.providers";
+import { groupConfProviders } from "@src/group-conf/group-conf.provider";
+import { MailerService } from "@src/mailer/mailer.service";
+import { TasksModule } from "@src/tasks/tasks.module";
+import { TasksService } from "@src/tasks/tasks.service";
 
 @Module({
-  imports: [SequelizeModule.forFeature([Groups]), TasksModule],
   controllers: [GroupsController],
-  providers: [GroupsService],
+  providers: [
+    GroupsService,
+    MailerService,
+    ...groupsProvider,
+    ...groupConfProviders,
+    TasksService,
+  ],
+  imports: [TasksModule],
+  exports: [GroupsModule, TasksModule, MailerService],
 })
 export class GroupsModule {}

@@ -1,11 +1,11 @@
-import { ITasks } from "./type";
+import { ITask } from "./type";
 
 const initialState: {
-  currentTask: Array<ITasks>;
-  endTask: Array<ITasks>;
+  tasks: Array<ITask>;
+  selectTask: ITask | null;
 } = {
-  currentTask: [],
-  endTask: [],
+  tasks: [],
+  selectTask: null,
 };
 
 export default initialState;

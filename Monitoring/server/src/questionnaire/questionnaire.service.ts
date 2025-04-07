@@ -1,13 +1,13 @@
-import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/sequelize";
+import { Inject, Injectable } from "@nestjs/common";
 import { Questionnaire } from "./questionnaire.model";
-import { PostBodyDto } from "./questionnaire.dto";
+import { PostBodyDto } from "./types/questionnaire.dto";
+import { EDBNameTable } from "@src/lib/types/enum";
 
 @Injectable()
 export class QuestionnaireService {
   constructor(
-    @InjectModel(Questionnaire)
-    private questionnaireModel: typeof Questionnaire
+    @Inject(EDBNameTable.QUESTIONNAIRE)
+    private questionnaireModel: typeof Questionnaire,
   ) {}
 
   async findAll() {

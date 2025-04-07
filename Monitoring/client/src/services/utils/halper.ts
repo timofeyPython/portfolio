@@ -1,24 +1,61 @@
-import { ERoles } from "@/types/collection.enum";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import cookie from "cookiejs";
 
-export function transcription(str: string) {
-  const res = {
-    name: "",
-    link: "",
-  };
-  switch (str) {
-    case ERoles.EMPLOYEE:
-      res.name = "Управление моими задачами";
-      res.link = "mytasks";
-      break;
-    case ERoles.HEAD_OF_DEPARTAMENT:
-      res.name = "Управление подразделением";
-      res.link = "departaments";
-      break;
-    case ERoles.HEAD_OF_GROUPS:
-      res.name = "Управление отделом";
-      res.link = "groups";
-      break;
+export function getParamsCookie(cookieName: string, param: string, value = "") {
+  const userSelection = cookie.get(cookieName);
+  if (!userSelection) {
+    cookie.set(
+      cookieName,
+      JSON.stringify({
+        [param]: value,
+      }),
+    );
+  } else {
+    if (typeof userSelection === "string") {
+      const object = JSON.parse(userSelection);
+      const check = Object.prototype.hasOwnProperty.call(object, param);
+      if (check) {
+        cookie.set(
+          cookieName,
+          JSON.stringify({
+            [param]: value,
+          }),
+        );
+      }
+
+      return check ? object[param] : value;
+    }
   }
 
-  return res;
+  return value;
+}
+
+export function parseString(text: string, index: number) {
+  const regex = /^(\w+):(\w+)\/update$/;
+  const result = text.match(regex);
+  if (result) return result[index + 1];
+  else return "";
+}
+
+export function checkValues(
+  entries: Array<{
+    value: string | number | null | undefined | boolean;
+    description: string;
+  }>,
+) {
+  const message: string[] = [];
+  let result = true;
+
+  if (Array.isArray(entries)) {
+    entries.forEach((entry) => {
+      if (!entry.value) {
+        message.push(entry.description);
+        result = false;
+      }
+    });
+  }
+  return {
+    result,
+    message,
+  };
 }

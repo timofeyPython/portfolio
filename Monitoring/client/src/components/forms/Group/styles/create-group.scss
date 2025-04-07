@@ -1,0 +1,23 @@
+.invate-lists {
+    padding: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.192);
+    background-color: #FFFF;
+}
+
+.invate-list {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.192);
+}
+
+.invate-list:last-child {
+    border: none;
+}
+
+.participants {
+    background-color: #77777712;
+   border: 1px solid rgba(128, 128, 128, 0.192);
+   padding: 1rem;
+   div {
+    margin-top: 0.1rem;
+   }
+   margin-bottom: 2rem;
+}

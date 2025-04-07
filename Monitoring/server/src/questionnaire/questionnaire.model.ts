@@ -7,7 +7,7 @@ import {
   Default,
 } from "sequelize-typescript";
 import { Sequelize } from "sequelize";
-import { IQuestions } from "./questionnaire.type";
+import { IQuestions } from "./types/questionnaire.type";
 
 @Table
 export class Questionnaire extends Model<Questionnaire> {

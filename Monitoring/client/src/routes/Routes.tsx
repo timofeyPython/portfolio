@@ -1,27 +1,24 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { PrivateRoute } from "@components/Route/PrivateRoute";
 import { AuthProvider } from "@components/Route/AuthProvider";
-import { AuthPage } from "@/page/AuthPage";
-import { AppPage } from "@/page/AppPage";
-import { MainPage } from "@/page/MainPage";
-import { GroupPage } from "@/page/GroupPage";
-import { TasksPage } from "@/page/TasksPage";
-import { MyTasksPage } from "@/page/MyTasksPage";
-import { NotFoundPage } from "@/page/NoFoundPage";
+import { ERoutePath } from "@/types/routePath.enum";
+import { AuthPage } from "@page/AuthPage";
+import { AppPage } from "@page/AppPage";
+import { NotFoundPage } from "@page/NoFoundPage";
+import { routes } from "./index";
 
 export function useRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="monitoring">
       <AuthProvider>
         <Routes>
-          <Route path="/login" element={<AuthPage />} />
+          <Route path={`/${ERoutePath.LOGIN}`} element={<AuthPage />} />
           <Route element={<PrivateRoute />}>
             <Route element={<AppPage />}>
-              <Route path="/main" element={<MainPage />} />
-              <Route path="/mytasks" element={<MyTasksPage />} />
+              {routes.map(({ path, element }) => (
+                <Route key={path} path={path} element={element} />
+              ))}
               <Route path="*" element={<NotFoundPage />} />
-              <Route path="/groups" element={<GroupPage />} />
-              <Route path="/tasks/:id" element={<TasksPage />} />
             </Route>
           </Route>
         </Routes>

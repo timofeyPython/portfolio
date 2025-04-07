@@ -13,8 +13,10 @@
 .dialogContent {
     z-index: 1;
     margin: auto;
-    padding: 15px;
+    padding: 2rem 3rem;
     background-color: #ffff;
     border-radius: 5px;
     box-shadow: 0 0 11px 2px #392c1e;
+    max-height: 90vh;
+    overflow: auto;
 }
